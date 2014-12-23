@@ -55,8 +55,8 @@ angular.module('coreBOSJSTickets.controllers', [])
 .controller('termscCtrl',function($scope) {
 })
 .controller('loginCtrl',function($scope, $rootScope, $i18next, $filter, Setup, coreBOSWSAPI, coreBOSAPIStatus,$location) {
-	$scope.username='test';
-        $scope.password='juKaW2jesSfBhgHM';
+	$scope.username='admin';
+        $scope.password='sZTFHVYW8Y3d8ix';
         if (!coreBOSAPIStatus.hasInvalidKeys()) {
 		$location.path('/currentorder');
 	}
