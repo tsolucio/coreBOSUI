@@ -70,7 +70,7 @@ angular.module('coreBOSJSTickets',
 			controller : 'relationsCtrl'
 		});
 		$routeProvider.otherwise({
-			redirectTo : '/cid_module/Accounts/Aziende'
+			redirectTo : '/cid_module/Anamnesis/Anamnesis'
 		});
 	}
 	])

@@ -27,6 +27,12 @@ angular.module('coreBOSJSTickets.controllers', [])
 		$scope.menuShow = false;
 	else
 		$scope.menuShow = true;
+        coreBOSWSAPI.doQuery('select * from PHBManager' ).then(function(response) {
+			$scope.result = response.data.result[0];
+                        less.modifyVars({
+                              '@color': $scope.result.menu_color
+        });
+		});
 	$scope.toggleMenu = function() {
 		$scope.menuShow = !$scope.menuShow;
 		$rootScope.menuShow = !$rootScope.menuShow;
@@ -93,7 +99,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 			
 			coreBOSWSAPI.doLogin($scope.username,$scope.password).then(function() {
 				coreBOSWSAPI.setConfigured();
-				$location.path('/cid_module/Accounts/Aziende');
+				$location.path('/cid_module/Anamnesis/Anamnesis');
 			},function(){
 				coreBOSWSAPI.doLoginPortal($scope.username,$scope.password).then(function(response) {
 					
@@ -105,7 +111,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 						accountid : '',
 						email     : '',
 					}];
-					$location.path('/cid_module/Accounts/Aziende');
+					$location.path('/cid_module/Anamnesis/Anamnesis');
 				},function(){
 					$scope.ErrorUserNotValid = true;
 				});

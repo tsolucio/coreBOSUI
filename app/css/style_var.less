@@ -1,0 +1,13 @@
+@color:#045799;
+//#045799
+@si:right;
+
+.side(@si){
+    
+left:0;
+}
+
+.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));    // next iteration
+  width: (10px * @counter); // code for each iteration
+}
