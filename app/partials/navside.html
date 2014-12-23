@@ -1,0 +1,8 @@
+<div id="close_open_button" onclick="toggleClass(body)"></div>
+    <ul>
+        <li ng-repeat="mitem in selecttypes" class="people-organizations" ng-class="{'active': isActive('/cid_module/{{mitem.name}}/{{mitem.label}}') }">
+            <a  href="#/cid_module/{{mitem.name}}/{{mitem.label}}">
+                {{mitem.label}}
+            </a>
+        </li>
+    </ul>

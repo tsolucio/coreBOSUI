@@ -1,0 +1,49 @@
+<div id="topHeader" ng-include="'partials/navtop.html'"></div>
+<div id="leftNavigation" ng-controller="navigationCtrl"  ng-include="'partials/navside.html'"></div><!-- leftNavigation -->
+
+<div id="pageWrapper">
+<div class="pageLeft">
+<div id="pageHeader">
+<h2 class="title">{{moduleLabel}}</h2>
+<div class="button-add"><a href="#/cid_moduleview/{{module}}/11">Add {{moduleLabel}}</a></div>
+</div><!-- pageHeader -->
+
+<div id="pageFilter">
+<select name="viewId" size="1" onchange="#">
+<optgroup label="Saved Lists">
+<option value="16274">filtro 1</option>
+</optgroup>
+<optgroup label="System Lists">
+<option value="organisations">All Organizations</option>
+<option value="people">All People</option>
+<option selected="selected" value="everyone">All People &amp; Organizations</option>
+<option value="lastimport">Last Import</option>
+</optgroup>
+</select>
+<div class="new-list"></div>
+<div id="viewResult">Showing 1 to 5 of {{myPageItemsCount}}</div>
+</div>
+<!-- pageFilter -->
+
+<div id="listPeople" class="pageRows">
+<input placeholder="Search..." ng-model="searchText.$">
+<table width="100%" border="0" ng-table="tableParams" >
+   <tr ng-repeat="records in $data | filter:searchText:strict">
+    <td id="profileCol"  >
+        <span class="name"><a href="#/cid_moduleview/{{module}}/{{records.id}}">{{records[linkfields[0]]}}</a> </span> at {{records[fields[0]]}} , {{records[fields[1]]}}<br />
+        <span class="address"> {{records[fields[2]]}} ,{{records[fields[3]]}}</span><br />
+     
+    </td>
+    <td>
+        {{records[fields[4]]}}<br />
+        {{records[fields[5]]}}
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+</div>
+    <div ng-include="'partials/cid_list_actions.html'"></div>
+    </div>

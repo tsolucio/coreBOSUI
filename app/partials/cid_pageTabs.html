@@ -1,0 +1,12 @@
+<div id="pageTabs" >
+ <ul>
+    <li ng-class="{'active': relmodule==module }">
+        <a  ng-click="showRel(module)" >{{accountname}}</a>
+    </li> 
+    <li ng-repeat="mitem in relatedmodules" 
+        ng-class="{'active': relmodule==mitem.module }">
+        <a ng-click="showRel(mitem.module,mitem.relfield)" >{{mitem.module}}</a>
+    </li> 
+
+</ul>
+</div>

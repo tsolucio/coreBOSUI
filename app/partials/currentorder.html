@@ -1,0 +1,35 @@
+<div id="topHeader" ng-include="'partials/navtop.html'"></div>
+<div id="leftNavigation" ng-controller="navigationCtrl"  ng-include="'partials/navside.html'"></div><!-- leftNavigation -->
+<div id="pageWrapper">
+<h2>{{'Current Orders' | i18next}}</h2>
+<div >{{'Key' | i18next}}: 
+	<span class="key_text Pending">{{'Pending' | i18next}}</span> - 
+	<span class="key_text Scheduled">{{'Scheduled' | i18next}}</span> - 
+	<span class="key_text Invoiced">{{'Completed' | i18next}}</span> - 
+	<span class="key_text InvoicePaid">{{'Paid' | i18next}}</span>
+</div>
+<div class="col-md-12">
+  <div class="table-responsive">
+	<table tr-ng-grid="" items="ordersList" page-items="15"
+	 page-items="ordersItemsCount" total-items="ordersTotalCount" locale="{{currentLang}}" 
+	 order-by="'duedate'" order-by-reverse="'true'" enable-filtering="'false'"
+	 class="table table-striped table-bordered table-hover"
+	 on-data-required="onServerSideOrdersRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+		<thead>
+			<tr>
+				<th field-name="ship_street" display-name="{{'Location' | i18next}}" display-align="center"></th>
+				<th field-name="duedate" display-name="{{'Available' | i18next}}"></th>
+				<th field-name="cf_555" display-name="{{'Complete By' | i18next}}"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td field-name="ship_street"><a href='#/currentorder/{{gridItem.id}}' class="{{gridItem.sostatus | nospace}}">{{gridItem.ship_street}}</a></td>
+				<td field-name="duedate"><span class="{{gridItem.sostatus | nospace}}">{{gridItem.duedate}}</span></td>
+				<td field-name="cf_555"><span class="{{gridItem.sostatus | nospace}}">{{gridItem.cf_555}}</span></td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+</div>
+    </div>

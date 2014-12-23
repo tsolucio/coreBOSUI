@@ -1,0 +1,65 @@
+<h2>{{'Timecontrol' | i18next}}</h2>
+<div class="container-fluid">
+<div id="qtcinputs" class="row" ng-class="watchonoff">
+<div class="pull-left full-width row" style="margin-top: 0px;">
+<h2 style="margin-left: 10px;">{{'trackingtime' | i18next}}</h2>
+<div class="col-md-3 col-xs-12"><input type="text" id="uitype10" class="inputbox-input-field" ng-model="lastTC.relatedname" placeholder="{{'Related To' | i18next}}" typeahead="relto.crmname for relto in getRelatedTo($viewValue)" typeahead-on-select='reltoSelect($item, $model, $label)' typeahead-loading="loadingrelatedto"/><i ng-show="loadingrelatedto" class="glyphicon glyphicon-refresh"></i></div>
+<div class="col-md-1 col-xs-6 text-center"><input type="text" id="ttime" class="ttime inputbox-input-field" ng-model="ttime" readonly/></div>
+<div class="col-md-1 col-xs-6 text-center"><input type="button" id="tcbtn" value="{{lblstartstop}}" ng-class="classstartstop" ng-click='startstopbtn()'><br/></div>
+</div>
+<div class="full-width row">
+<div class="inputbox col-md-1">
+  <input class="inputbox-input-field-small text-center" type="text" id="starttime" name="starttime" ng-model="lastTC.time_start" tabindex="104" disabled>
+  <label for="starttime" class="pull-left input-hint">{{'Start' | i18next}}</label>
+</div>
+<div class="clearfix visible-xs-block"></div>
+<div class="inputbox col-md-1">
+  <input class="inputbox-input-field-small text-center" type="text" id="stoptime" name="stoptime" ng-model="lastTC.time_end" tabindex="105">
+  <label for="stoptime" class="pull-left input-hint">{{'End' | i18next}}</label>
+</div>
+<div class="clearfix visible-xs-block"></div>
+<div class="inputbox col-md-2">
+  <input class="inputbox-input-field-small text-center" type="text" id="startdate" name="startdate" ng-model="lastTC.date_start" disabled>
+  <label for="startdate" class="pull-left input-hint">{{'Date Start' | i18next}}</label>
+</div>
+<div class="clearfix visible-xs-block"></div>
+<div class="inputbox col-md-2">
+  <select ng-model="tcrelconcept" class="inputbox-input-field-small" tabindex="104" id="tcrelconcept" name="tcrelconcept" ng-options="tcrelc as tcrelc.label for tcrelc in tcrelconcepts track by tcrelc.value"></select>
+  <label for="tcrelconcept" class="pull-left input-hint">{{'Related Concept' | i18next}}</label>
+</div>
+<div class="clearfix visible-xs-block"></div>
+<div class="inputbox col-md-2">
+  <input class="pull-left inputbox-input-field-small" id="billwith" name="billwith" type="text" ng-model="lastTC.product_name" tabindex="105" typeahead="relps.crmname for relps in getRelatedPS($viewValue)" typeahead-on-select='relpsSelect($item, $model, $label)' typeahead-loading="loadingrelatedps"/><i ng-show="loadingrelatedps" class="glyphicon glyphicon-refresh"></i>
+  <label for="billwith" class="pull-left input-hint">{{'BillWith' | i18next}}</label>
+</div>
+</div>
+<div class="clearfix"></div>
+<br/><br/>
+</div>
+<div class="clearfix"></div>
+<br/>
+<div id="grid" class='table-responsive row'>
+	<table tr-ng-grid="" items="tcsList" page-items="5" fields="['date_start','time_start','time_end','totaltime','relatedname','tcbillw']" 
+	 page-items="tcsItemsCount" total-items="tcsTotalCount" locale="{{currentLang}}" 
+	 order-by="'date_start'" order-by-reverse="'true'" enable-filtering="'false'"
+	 class="table table-striped table-bordered table-hover"
+	 on-data-required="onServerSideOrdersRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+		<thead>
+			<tr>
+				<th field-name="date_start" display-name="{{'Date Start' | i18next}}" display-align="center"></th>
+				<th field-name="time_start" display-name="{{'Start' | i18next}}"></th>
+				<th field-name="time_end" display-name="{{'End' | i18next}}"></th>
+				<th field-name="totaltime" display-name="{{'Total' | i18next}}"></th>
+				<th field-name="relatedname" display-name="{{'Related To' | i18next}}"></th>
+				<th field-name="tcbillw" display-name="{{'BillWith' | i18next}}" enable-sorting="false" enable-filtering="false"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><img src="img/recycle.png" style="width: 16px;" ng-click="continuetc(gridItem.id)" alt="{{'Continue' | i18next}}" title="{{'Continue' | i18next}}"></td>
+				<td><img src="img/DeleteRed.png" style="width: 16px;" ng-click="deletetc(gridItem.id)" alt="{{'Delete' | i18next}}" title="{{'Delete' | i18next}}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>

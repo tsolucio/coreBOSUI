@@ -1,0 +1,100 @@
+<h2>{{'New Order' | i18next}}</h2>
+<div class="col-md-12">
+<form name="NewOrder" class="col-md-7 css-form form-horizontal" role="form">
+	<div class="form-group">
+		<label for="so.subject" class="col-sm-3 control-label">Your Name</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.subject" class="form-control" placeholder="Work requested by" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.ship_street" class="col-sm-3 control-label">Work Order Address</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.ship_street" class="form-control" placeholder="Address of work to be done" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.ship_city" class="col-sm-3 control-label">City</label>
+		<div class="col-md-8">
+		<select ng-model="so.ship_city" class="form-control" required ng-options="cityname for cityname in cities"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_459" class="col-sm-3 control-label">Property Type</label>
+		<div class="col-md-8">
+		<select ng-model="so.cf_459" class="form-control" required ng-options="aptoname for aptoname in apartments"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.ddate" class="col-sm-3 control-label">Available</label>
+		<div class="col-md-8">
+		<p class="input-group">
+			<input type="text" class="form-control" datepicker-popup="MM/dd/yy" ng-model="so.ddate" is-open="openedduedate" min-date="minDate" max-date="maxDate" ng-required="true" close-text="Close" readonly/>
+			<span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-click="openduedate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
+		</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.atime" class="col-sm-3 control-label">Appointment Time</label>
+		<timepicker ng-model="so.atime" ng-change="setMaxMinTime()" hour-step="1" minute-step="30" show-meridian="true" required></timepicker>
+	</div>
+	<div class="form-group">
+		<label for="so.cdate" class="col-sm-3 control-label">Must be Completed By</label>
+		<div class="col-md-8">
+		<p class="input-group">
+			<input type="text" class="form-control" datepicker-popup="MM/dd/yy" ng-model="so.cdate" is-open="openedworkdate" min-date="minDate" max-date="maxDate" ng-required="true" close-text="Close" readonly/>
+			<span class="input-group-btn">
+				<button type="button" class="btn btn-default" ng-click="openworkdate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+			</span>
+		</p>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_591" class="col-sm-3 control-label">Bedrooms</label>
+		<div class="col-md-8">
+		<input type="number" ng-model="so.cf_591" class="form-control" placeholder="Number of bedrooms" required min="0" max="8">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_589" class="col-sm-3 control-label">Carpeted Stairs?</label>
+		<div class="col-md-8">
+		<select ng-model="so.cf_589" class="form-control" required ng-options="hasstairs for hasstairs in yesno"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_465" class="col-sm-3 control-label">Total Sq. Ft.</label>
+		<div class="col-md-8">
+		<select ng-model="so.cf_465" class="form-control" ng-options="sqfeet for sqfeet in sqfeetoptions"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_579" class="col-sm-3 control-label">Condition</label>
+		<div class="col-md-8">
+		<select ng-model="so.cf_579" class="form-control" ng-options="cond for cond in condoptions" required></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_838" class="col-sm-3 control-label">Blacklight</label>
+		<div class="col-md-8">
+		<select ng-model="so.cf_838" class="form-control" ng-options="hasbl for hasbl in yesno"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_581" class="col-sm-3 control-label">Pet Issue</label>
+		<div class="col-md-8">
+		<select ng-model="so.cf_581" class="form-control" ng-options="peti for peti in petoptions" required></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_505" class="col-sm-3 control-label">Additional Notes<br><span style="color:red;font-size:x-small;">Please Include<br>(1) Access Method - Key at office, lock box, etc.<br>(2) Billing info if not yourself</span></label>
+		<div class="col-md-8">
+		<textarea ng-model="so.cf_505" class="form-control" rows="8" required></textarea>
+		</div>
+	</div>
+	<div class="alert alert-success" role="alert" ng-show="ordersent" ng-bind-html="comment"></div>
+	<div class="alert alert-danger" role="alert" ng-show="errorsending" ng-bind-html="errormsg"></div>
+	<button type="button" class="btn btn-success" ng-click="doSendNewOrder()" ng-show="NewOrder.$valid && !ordersent" style="float:right;">{{'Send' | i18next}} >></button>
+</form>
+</div>

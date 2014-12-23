@@ -1,0 +1,86 @@
+<h2>{{'HelpDesk' | i18next}}</h2>
+<div id="modulecontent" ng-if="retrieveable">
+<form editable-form name="helpdeskForm" onaftersave="saveHelpDeskModule()">
+<div class="col-md-12" ng-if="retrieveable">
+	<div class="form-group">
+		<label for="helpdesk.ticket_no" class="col-sm-3 control-label">{{'TicketNo' | i18next}}</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="helpdesk.ticket_no" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="helpdesk.ticket_title" class="col-sm-3 control-label">{{'Title' | i18next}}</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="helpdesk.ticket_title" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="helpdesk.parent_id" class="col-sm-3 control-label">{{'Related To' | i18next}}</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="helpdesk.parent_id" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="helpdesk.ticketstatus" class="col-sm-3 control-label">{{'Status' | i18next}}</label>
+		<div class="col-md-8">
+		<select type="text" ng-model="helpdesk.ticketstatus" class="form-control" ng-options="status.value as status.label for status in ticketstatus.picklistValues"></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="helpdesk.description" class="col-sm-3 control-label">{{'Description' | i18next}}</label>
+		<div class="col-md-8">
+		<textarea type="text" ng-model="helpdesk.description" class="form-control" rows="8" readonly></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="helpdesk.solution" class="col-sm-3 control-label">{{'Solution' | i18next}}</label>
+		<div class="col-md-8">
+		<textarea type="text" ng-model="helpdesk.solution" class="form-control" rows="8" ></textarea>
+		</div>
+	</div>
+	<br>
+</div>
+<div class="form-group">
+	<button type="submit" class="btn btn-primary" ng-show="updateable">{{'Save' | i18next}}</button>
+</div>	
+</form>
+<form name="commentForm" class="form-group" ng-submit="saveTicketComment()">
+	<div class="form-group">
+		<label for="helpdesk.comments" class="col-sm-3 control-label">{{'Comments' | i18next}}</label>
+		<div class="col-md-8">
+			<textarea ng-model="helpdesk.comments" class="form-control" rows="8"></textarea>
+		</div>
+	</div>
+		<br><br>
+	<div class="control-group buttons">
+		<button  type="button" 
+			class="btn clearButton btn-danger" 
+			ng-click="clearData()">{{'Clear' | i18next}}</button>
+		<button  type="submit" 
+			class="btn btn-primary" 
+			ng-disabled="commentForm.$invalid" 
+			ng-class="{disabled:commentForm.$invalid}">{{'Add Comment' | i18next}}</button>
+	</div>
+	
+	<br><br>
+</form>
+<form name="sigForm" class="form-group" ng-submit="saveSignature()">
+	<!-- Signature Pad -->
+	<br>
+		<sigpad ng-model='helpdesk.signature' clearBtn=".clearButton" name="signature" required></sigpad>
+	<br>
+	<div class="control-group buttons">
+		<button  type="button" 
+			class="btn clearButton btn-danger" 
+			ng-click="clearData()">{{'Clear' | i18next}}</button>
+		<button  type="submit" 
+			class="btn btn-primary" 
+			ng-disabled="sigForm.$invalid" 
+			ng-class="{disabled:sigForm.$invalid}">{{'Save' | i18next}}</button>
+	</div>
+	<br>
+</form>
+</div>
+<div id="modulenocontent" ng-if="!retrieveable">
+<span class="alert alert-danger">{{'errGettingRecord' | i18next}}</span>
+</div>

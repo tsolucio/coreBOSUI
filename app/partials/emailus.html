@@ -1,0 +1,10 @@
+<h2>{{'Send us an email' | i18next}}</h2>
+<div class= "col-md-offset-1 col-md-10">
+{{'AskQuestion' | i18next}}<br>
+<span style="color:red;">{{'SendReferenceInfo' | i18next}}</span><br><br>
+<form name="Question" class="col-md-8 css-form">
+	<textarea  name="question" style="width:100%; min-height:210px;" required ng-model="emailustext"></textarea>
+	<div class="alert alert-success" role="alert" ng-show="emailsent">{{'QuestionSubmitted' | i18next}}</div>
+	<button type="button" class="btn btn-success" ng-click="doSendEmail()" ng-show="Question.$valid && !emailsent" style="float:right;">{{'Send' | i18next}} >></button>
+</form>
+</div>

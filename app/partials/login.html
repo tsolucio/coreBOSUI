@@ -1,0 +1,47 @@
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="bower_components/RWD-Table-Patterns/dist/css/rwd-table.min.css">
+  <link rel="stylesheet" href="bower_components/trNgGrid/release/trNgGrid.min.css">
+  <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css">
+  <link rel="stylesheet" href="bower_components/signature-pad/assets/jquery.signaturepad.css">
+  <!--[if lt IE 9]><script src="bower_components/signature-pad/assets/flashcanvas.js"></script><![endif]-->
+  <link rel="stylesheet" href="css/corebosjs.css"/>
+  <link rel="stylesheet" href="css/timecontrol.css"/>
+<div style ="width:50%;margin-left:350px;margin-top:50px">
+	<!-- <label for="chglang" style="clear: left;">{{'Change language to'|i18next}}:</label>
+	<select 
+		ng-model="currentLang"
+		ngSelected="currentLang"
+		ng-options="lng.name for lng in langs track by lng.code"
+		ng-change="changeLanguage(currentLang);" name="chglang" id="chglang">
+	</select>
+	<br><br>-->
+        <img src="images/phb_logo1.jpg" style="width: 15em;height: 4.2em;margin-left:200px;"/>
+    <form role="form" name="loginForm" ng-submit="login()" ng-class="{submitted:submitted}" novalidate>
+      <div class="form-group">
+        <label for="username">{{'coreBOS User'|i18next}}</label><br/>
+        <input type="text"
+               class="form-control"
+               name="username"
+               ng-model="username"
+               id="search"
+               placeholder="Username"
+               required />
+      </div>
+      <div class="form-group">
+        <label for="password">{{'coreBOS Access Key'|i18next}}</label>
+        <input type="password"
+               class="form-control"
+               name="password"
+               ng-model="password"
+               id="password"
+               placeholder="Password"
+               required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">{{'Login'|i18next}}</button>
+    </form>
+    <br>
+	<div class="col-md-6 col-md-offset-3" style="clear: left;" ng-show="ErrorUserNotValid">
+		<alert type="danger" ng-bind-html="'coreBOSAPIInvalidKeys' | i18next"></alert>
+	</div>
+ </div>

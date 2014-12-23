@@ -1,0 +1,45 @@
+<h2>{{'My Account' | i18next}}</h2>
+<div class="col-md-12" style="margin-bottom:8px;">{{'warnPreferenceChange' | i18next}}</div>
+<div class="col-md-12">
+<form name="AccountInfo" class="col-md-7 css-form form-horizontal" role="form">
+	<div class="form-group">
+		<label for="ac.accountname" class="col-sm-3 control-label">{{'Name' | i18next}}</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="ac.accountname" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="ac.cf_561" class="col-sm-3 control-label">{{'Company' | i18next}}</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="ac.cf_561" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="ac.phone" class="col-sm-3 control-label">{{'Phone' | i18next}} #</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="ac.phone" class="form-control" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="ac.fax" class="col-sm-3 control-label">{{'Fax' | i18next}} #</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="ac.fax" class="form-control" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="ac.email1" class="col-sm-3 control-label">{{'Email' | i18next}}</label>
+		<div class="col-md-8">
+		<input type="email" ng-model="ac.email1" class="form-control" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="ac.cf_573" class="col-sm-3 control-label">{{'Notify Me Via' | i18next}}</label>
+		<div class="col-md-8">
+		<select ng-model="ac.cf_573" class="form-control" required ng-options="notevia.name for notevia in notifyvia track by notevia.code"></select>
+		</div>
+	</div>
+	<div class="alert alert-success" role="alert" ng-show="accountsent" ng-bind-html="comment"></div>
+	<div class="alert alert-danger" role="alert" ng-show="errorsending" ng-bind-html="errormsg"></div>
+	<button type="button" class="btn btn-success" ng-click="doUpdateAccount()" ng-show="AccountInfo.$valid && !accountsent" style="float:right;">{{'Send' | i18next}} >></button>
+</form>
+</div>

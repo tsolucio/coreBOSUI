@@ -1,0 +1,22 @@
+<div id="topHeader" ng-include="'partials/navtop.html'"></div>
+<div id="leftNavigation" ng-controller="navigationCtrl"  ng-include="'partials/navside.html'"></div><!-- leftNavigation -->
+
+<div id="pageWrapper">
+<div class="pageContent profile-view">
+    
+<div id="pageHeader">
+<h2 class="title">{{accountname}}</h2>
+<div id="tags"><span class="actual_tags">geek, interessante,</span> <a href="#">Manage Tags</a></div>
+</div><!-- pageHeader -->
+
+<div ng-include="'partials/cid_pageTabs.html'" ></div>
+<div id="profileContent">
+<div ng-include="'partials/cid_profileDetails.html'" ></div>
+    <!-- profileDetails -->
+<div ng-if="relmodule!==module" ng-include="'partials/cid_relatedList.html'"></div>
+<div ng-if="relmodule==module" ng-include="'partials/cid_summary.html'"></div>
+<!-- pageRows -->
+
+</div><!-- profileContent -->
+</div>
+</div>

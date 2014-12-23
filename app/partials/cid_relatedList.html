@@ -1,0 +1,40 @@
+
+<form editable-form name="relateForm" onaftersave="doCreateRel()">
+<div id="opportunities" class="pageRows">
+<div id="pagerowsHeader">
+<h2 class="title">{{relmodule}} involving {{accountname}}</h2>
+<div id="buttons">
+  <a ng-click="relateForm.$show()" class="add-action"><span class="icon">+</span>Add {{relmodule}}</a></div>
+ 
+</div><!-- pageHeader -->
+<table width="100%" border="0" class="recordList column5">
+    <thead>
+        <tr>
+            <th ng-repeat="head in fields" scope="col" >{{head}}</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="row in relRecordList">
+        <td ng-repeat="head in fields">
+            {{row[head]}} 
+        </td>
+    </tr>
+    <tr ng-show="relateForm.$visible">
+        <td ng-repeat="head in fields"> {{head}}
+            <span editable-text="entity.{{head}}" e-name="entity.{{head}}" id="entity.{{head}}">
+                {{entity.head}}
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="submit" class="add-action" ng-show="relateForm.$visible">{{'Save' | i18next}}</button>
+            <button type="button" class="add-action" ng-click="relateForm.$hide()" ng-show="relateForm.$visible">{{'Cancel' | i18next}}</button>
+        </td>   
+    </tr>
+    </tbody>
+</table>
+
+</div><!-- pageRows -->
+</form>
+

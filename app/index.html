@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="coreBOSJSTickets" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="coreBOSJSTickets" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="coreBOSJSTickets" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html lang="en" ng-app="coreBOSJSTickets" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CID Widgets</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>	
+
+function toggleClass(el){
+	if(el.className == "toggleShow"){
+		el.className = "toggleHide";
+	} else {
+		el.className = "toggleShow";
+	}
+}
+
+var $j = jQuery.noConflict();
+$j(window).scroll(function() {    
+    var scroll = $j(window).scrollTop();
+
+    if (scroll >= 30) {
+        $j("#mainWrapper").addClass("scroll-effect");
+    } else {
+        $j("#mainWrapper").removeClass("scroll-effect");
+    }
+	
+});
+
+</script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+</head>
+
+<body class="toggleHide" ng-cloak>
+<div id="mainWrapper" ng-app="coreBOSJSTickets">
+    
+<ng-view></ng-view>
+
+</div>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/i18next/i18next.js"></script>
+  <script src="bower_components/ng-i18next/dist/ng-i18next.js"></script>
+  <script src="bower_components/angular-md5/angular-md5.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/RWD-Table-Patterns/dist/js/rwd-table.min.js"></script>
+  <script src="bower_components/trNgGrid/release/src/js/trNgGrid.js"></script>
+  <link rel="stylesheet" href="bower_components/trNgGrid/ng-table.css">
+  <script src="bower_components/trNgGrid/ng-table.js"></script>
+  <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+  <script src="bower_components/signature-pad/jquery.signaturepad.min.js"></script>
+  <script src="bower_components/signature-pad/assets/json2.min.js"></script>
+  <script src="bower_components/coreboswsapijs/coreBOSAPI.js"></script>
+  <script src="setup.js"></script>
+  <script src="js/corebosjs.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/timecontrol.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>

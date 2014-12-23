@@ -1,0 +1,27 @@
+<h2>Settings</h2>
+<p>
+<label for="chglang" class="col-md-3"  style="clear: left;">{{'Change language to'|i18next}}:</label>
+<select 
+ng-model="currentLang"
+ngSelected="currentLang"
+ng-options="lng.name for lng in langs track by lng.code"
+ng-change="changeLanguage(currentLang);" name="chglang" id="chglang"></select><br>
+</p>
+<p>
+<label for="mvurlkey" class="col-md-3" style="clear: left;">{{'coreBOS URL' | i18next}}</label>
+<input name="mvurlkey" id ="mvurlkey" type=text ng-model="mvurlkey" class="col-md-5">
+<label for="mvpublickey" class="col-md-3" style="clear: left;">{{'coreBOS User' | i18next}}</label>
+<input name="mvpublickey" id ="mvpublickey" type=text ng-model="mvpublickey" class="col-md-5">
+<label for="mvprivatekey" class="col-md-3" style="clear: left;">{{'coreBOS Access Key' | i18next}}</label>
+<input name="mvprivatekey" id ="mvprivatekey" type=text ng-model="mvprivatekey" class="col-md-5">
+<div class="col-md-offset-3 col-md-9" style="clear: left;" ng-hide="cbAPIConfigured.isConfigured()">
+  <alert type="danger" ng-bind-html="'coreBOSKeyNotSet' | i18next"></alert>
+</div>
+<div class="col-md-offset-3 col-md-9" style="clear: left;" ng-show="cbAPIKeys.hasInvalidKeys()">
+  <alert type="danger" ng-bind-html="'coreBOSAPIInvalidKeys' | i18next"></alert>
+</div>
+<span class="col-md-offset-3 col-md-9" style="clear: left;">{{'coreBOSKeyNotSaved' | i18next}}</span>
+<hr class="col-md-12" style="width:80%;text-align:center;clear: both;"/>
+<label class="col-md-5" style="clear: left;">{{'Promotion' | i18next}}</label>
+<span class="col-md-offset-1 col-md-10" style="clear: left;" ng-bind-html="'PromotionDescription' | i18next"></span>
+</p>

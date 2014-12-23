@@ -1,0 +1,91 @@
+<h2>{{'View Order' | i18next}}</h2>
+<div class="col-md-12" ng-if="retrieveable">
+	<div class="form-group">
+		<label for="so.subject" class="col-sm-3 control-label">Your Name</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.subject" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.ship_street" class="col-sm-3 control-label">Work Order Address</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.ship_street" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.ship_city" class="col-sm-3 control-label">City</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.ship_city" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_459" class="col-sm-3 control-label">Property Type</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_459" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.ddate" class="col-sm-3 control-label">Available</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.duedate" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_541" class="col-sm-3 control-label">Appointment Time</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_541" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cdate" class="col-sm-3 control-label">Must be Completed By</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_555" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_591" class="col-sm-3 control-label">Bedrooms</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_591" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_589" class="col-sm-3 control-label">Carpeted Stairs?</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_589" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_465" class="col-sm-3 control-label">Total Sq. Ft.</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_465" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_579" class="col-sm-3 control-label">Condition</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_579" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_838" class="col-sm-3 control-label">Blacklight</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_838" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_581" class="col-sm-3 control-label">Pet Issue</label>
+		<div class="col-md-8">
+		<input type="text" ng-model="so.cf_581" class="form-control" readonly>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="so.cf_505" class="col-sm-3 control-label">Additional Notes<br><span style="color:red;font-size:x-small;">Please Include<br>(1) Access Method - Key at office, lock box, etc.<br>(2) Billing info if not yourself</span></label>
+		<div class="col-md-8">
+		<textarea ng-model="so.cf_505" class="form-control" rows="8" readonly></textarea>
+		</div>
+	</div>
+</div>
+<div id="modulenocontent" ng-if="!retrieveable">
+<br>
+<span class="alert alert-danger">{{'errGettingOrder' | i18next}}</span>
+</div>

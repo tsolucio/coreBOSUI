@@ -1,0 +1,85 @@
+.stop-button, .start-button {
+	width: 75px;
+	height: 26px;
+	vertical-align: bottom;
+	padding: 0;
+	margin: 0;
+	margin-top:3px;
+	font-size: 14px;
+	font-weight: 700;
+	color: white;
+	cursor: pointer;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.stop-button {
+	border: 1px solid #740F11;
+	background: url('../img/fondo.png') repeat-x scroll center bottom #F68586!important;
+	background-position: 0 -56px;
+}
+.start-button {
+	border: 1px solid #2B619B;
+	background: url('../img/fondo.png') repeat-x scroll #A4D0FE!important;
+	background-position: 0 0;
+	vertical-align: middle;
+}
+.watchon, .watchoff {
+	padding-left: 12px;
+}
+.watchoff {
+	background-color: #b4d4ff;
+}
+.watchon {
+	background-color: #b2da8e;
+}
+.inputbox {
+	color:#000;
+	height:26px;
+	line-height:26px
+}
+.inputbox-input-field, .inputbox-input-field-small {
+	border:0;
+	padding:0 2px;
+	line-height:18px;
+	font-size:18px;
+	width:100%;
+	height:22px;
+	margin-top:3px;
+	margin-left:1px;
+	margin-right:2px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-shadow:none;
+	-moz-box-shadow:none;
+	-webkit-box-shadow:none;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+.inputbox-input-field-small {
+	font-size:12px;
+}
+.inputbox-input-field:hover,.inputbox-input-field:focus,
+.inputbox-input-field-small:hover,.inputbox-input-field-small:focus {
+	background:none repeat scroll 0 0 #ffffdd;
+}
+
+.ttime {
+	width: 60px;
+	font-size: 14px;
+	font-weight: 700;
+}
+.full-width {
+	width:100%
+}
+.input-hint {
+	font-size:9px;
+	text-transform:uppercase;
+	color:#4575a9;
+	border-top: 1px solid;
+	margin-top: 2px;
+	width: 100%;
+}
