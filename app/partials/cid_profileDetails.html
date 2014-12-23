@@ -1,7 +1,7 @@
 <div id="profileDetails" ng-if="retrieveable">
 <form editable-form name="accountForm" onaftersave="saveModule()">
 <div id="profileHeader">
-<div id="profile-pic"><img src="images/profiles/andrea.jpg"></div><span class="name">{{accountname}}</a></span><br /> at <a href="http://{{website}}">{{website}}</a>
+<div id="profile-pic"> </div><span class="name">{{accountname}}</a></span><br /> at <a href="http://{{website}}">{{website}}</a>
     <div class="profileEdit">	
         <a ng-click="accountForm.$show()" ng-show="!creating && updateable && !accountForm.$visible">{{'Edit' | i18next}}</a>
         <a ng-click="accountForm.$show()" ng-show="creating && updateable && !accountForm.$visible">{{'Create' | i18next}}</a>

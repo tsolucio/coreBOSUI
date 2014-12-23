@@ -496,6 +496,25 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.3);
 #leftNavigation ul li.cases{
 	background-image:url(../images/icons/cases.png);
 }
+#leftNavigation ul li.Anamnesis{
+	background-image:url(../images/icons/Anamnesis_icon.png);
+}
+
+#leftNavigation ul li.Issues {
+	background-image:url(../images/icons/Issues_icon.png);
+}
+
+#leftNavigation ul li.Patients{
+	background-image:url(../images/icons/Patients_icon.png);
+}
+
+#leftNavigation ul li.Prescription {
+	background-image:url(../images/icons/Prescription_icon.png);
+}
+
+#leftNavigation ul li.Visit{
+	background-image:url(../images/icons/Visit_icon.png);
+}
 
 #leftNavigation ul li a {
 	font-size:11px;
