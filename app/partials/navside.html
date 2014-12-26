@@ -2,7 +2,7 @@
     <ul>
         <li ng-repeat="mitem in selecttypes" class="{{mitem.name}}" ng-class="{'active': isActive('/cid_module/{{mitem.name}}/{{mitem.label}}') }">
             <a  href="#/cid_module/{{mitem.name}}/{{mitem.label}}">
-                {{mitem.label}}
+                {{mitem.label | i18next}}
             </a>
         </li>
     </ul>

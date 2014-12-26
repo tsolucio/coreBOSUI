@@ -71,7 +71,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 			code : 'es'
 		}];
 		$scope.changeLanguage = function (lng) {
-			i18n.setLng(lng.code, function(t) { 
+			i18n.setLng('en', function(t) { 
 				$scope.langs = [ {
 					name : t('English'),
 					code : 'en'
@@ -79,7 +79,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 					name : t('Spanish'),
 					code : 'es'
 				}];
-				$i18next.options.lng=lng.code;
+				$i18next.options.lng='en';
 			});
 		};
 		var found = $filter('getArrayElementById')($scope.langs, $i18next.options.lng, 'code');
