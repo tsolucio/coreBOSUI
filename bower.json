@@ -23,6 +23,7 @@
     "RWD-Table-Patterns": "~5.0.4",
     "angular-xeditable": "~0.1.8",
     "coreboswsapijs": "*",
-    "signature-pad": "*"
+    "signature-pad": "*",
+    "ng-table": "0.3.2"
   }
 }
