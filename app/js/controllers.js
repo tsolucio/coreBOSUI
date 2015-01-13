@@ -23,6 +23,15 @@ angular.module('coreBOSJSTickets.controllers', [])
 		$scope.selecttypes = ltypes;
                 //$scope.selecttypes.push({name:'Accounts',label:'Aziende'});
 	});
+        
+//        var option = { 
+//                  ns: 'translation',
+//                  resGetPath: 'locales/it/translation.json?lng=en&ns=translation',
+//                  //resGetPath: '/CID/webservice.php?module=Campaigns&operation=getlanguagefile&sessionName='+coreBOSAPIStatus.getSessionInfo()._sessionid+'&lng=en&ns=translation',
+//                  dynamicLoad: true
+//                };
+//        i18n.init(option);
+        
 	if($location.path() == '/login')
 		$scope.menuShow = false;
 	else

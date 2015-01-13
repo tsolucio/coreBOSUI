@@ -5,14 +5,13 @@
     <div class="profileEdit">	
         <a ng-click="accountForm.$show()" ng-show="!creating && updateable && !accountForm.$visible">{{'Edit' | i18next}}</a>
         <a ng-click="accountForm.$show()" ng-show="creating && updateable && !accountForm.$visible">{{'Create' | i18next}}</a>
-        <button type="submit" class="buttons add-action" ng-show="accountForm.$visible">{{'Save' | i18next}}</button>
-        
-</div>
+        <button type="submit" class="buttons add-action" style="background-color: #ffb218;border-radius: 3px 3px 0 3px; box-shadow: 0 3px 3px -2px #ccc" ng-show="accountForm.$visible">{{'Save' | i18next}}</button>
+    </div>
 </div>
     
 	<ul class="contact-details" ng-repeat="row in modulefieldList">
 		<li ng-repeat="field in row">
-		  <b>{{field.label}}</b>
+		  <b>{{field.label | i18next}}</b>
 		  
 			<span ng-if="field.type=='string'" editable-text="moduleData.{{field.field}}" e-name="{{field.field}}" id="{{field.field}}">{{getModuleValue(field.field)}}</span>
 			<span ng-if="field.type=='phone'" editable-tel="moduleData.{{field.field}}" e-name="{{field.field}}" id="{{field.field}}">{{getModuleValue(field.field)}}</span>
@@ -32,8 +31,8 @@
 		 
 		</li>
 	</ul>
-            <button type="submit" class="add-action" ng-show="accountForm.$visible">{{'Save' | i18next}}</button>
+            <!-- <button type="submit" class="add-action" ng-show="accountForm.$visible">{{'Save' | i18next}}</button>-->
             <button type="button" class="add-action" ng-click="accountForm.$hide()" ng-show="accountForm.$visible">{{'Cancel' | i18next}}</button>
-            <button type="button" class="add-action" ng-click="doDelete(recordid)" ng-show="deleteable">{{'Delete' | i18next}}</button>
+            <!-- <button type="button" class="add-action" ng-click="doDelete(recordid)" ng-show="deleteable">{{'Delete' | i18next}}</button> -->
 </form>
 </div>
