@@ -3,7 +3,7 @@
 angular.module('coreBOSJSTickets',
 	[ 'ngRoute', 'coreBOSJSTickets.setup', 'ngSanitize', 'coreBOSJSTickets.filters', 'coreBOSAPIservice',
 		'coreBOSJSTickets.directives', 'coreBOSJSTickets.controllers', 'angular-md5', 'xeditable','ui.bootstrap',
-		'jm.i18next', 'trNgGrid', 'ngTable'])
+		'jm.i18next', 'trNgGrid', 'ngTable','nvd3'])
 	.config([ '$routeProvider', function($routeProvider) {
 		$routeProvider.when('/currentorder/:id', {
 			templateUrl : 'partials/currentorderview.html',

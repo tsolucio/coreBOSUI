@@ -525,6 +525,25 @@ angular.module('coreBOSJSTickets.controllers', [])
               }
         };
         
+
+        if($scope.module=='Patients'){
+        coreBOSWSAPI.getVitalParameters($scope.recordid).then(function(response) {
+                    $scope.visitid =response.data.result.visit[0];
+                    $scope.visitname =response.data.result.visit[1];
+                    $scope.prescriptionname=response.data.result.prescription[1];
+                    $scope.prescriptionid=response.data.result.prescription[0];
+                    $scope.vitalid=response.data.result.vitals[0];
+                    $scope.vitalname=response.data.result.vitals[1];
+                    $scope.bloodpresure=response.data.result.vitals[2];
+                    $scope.oxygensat=response.data.result.vitals[3];
+                    $scope.weight=response.data.result.vitals[4];
+                    $scope.bloodpressdi=response.data.result.vitals[5];
+                    $scope.issues=response.data.result.issues;
+                    
+
+            });
+        }
+        
         $scope.doCreateRel = function() {
              alert($scope.entity);
              $scope.entity[$scope.relfield]=$scope.recordid;

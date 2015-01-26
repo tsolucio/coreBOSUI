@@ -1,0 +1,87 @@
+<div class="summary-panel column3">
+  <div class="column  first">
+   <h3>Next Visit</h3>
+   <p class="large"><a href="#/cid_moduleview/Visit/91x{{visitid}}">{{visitname}}</a></p>
+   </div>
+    <div class="column  first">
+   <h3>Current Prescription</h3>
+   <p class="large"><a href="#/cid_moduleview/Prescription/93x{{prescriptionid}}">{{prescriptionname}}</a></p>
+   </div>
+
+</div>
+
+<div id="summary" class="pageRows">
+<div id="pagerowsHeader">
+<h2 class="title">Parametri Vitali</h2>
+<div id="buttons">
+ <!-- <a class="add-action" href="#"><span class="icon">+</span></a>-->
+</div>
+</div><!-- pageHeader -->
+<table width="100%" border="0">
+  <tr>
+    <td>
+    <div class="note">
+    <span class="creation"> </span>
+    <p >BLOOD PRESSURE</p>
+    <p class="attachments-pdf">{{bloodpresure}}</p>
+    </div>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+    <div class="note">
+    <span class="creation"> </span>
+    <p >BLOOD PRESSURE</p>
+    <p >{{bloodpresure}}</p>
+    </div>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td>
+    <div class="note">
+    <span class="creation"> </span>
+    <p >WEIGHT</p>
+    <p class="attachments-pdf">{{weight}}</p>
+    </div>
+    </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td><div class="note">
+    <span class="creation"> </span>
+    <p >WEIGHT</p>
+    <p >{{weight}}</p>
+    </div>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td>
+    <div class="note">
+    <span class="creation"> </span>
+    <p >BLOOD PRESSURE</p>
+    <p class="attachments-pdf">{{bloodpresure}}/{{bloodpressdi}}</p>
+    </div>
+    </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td><div class="note">
+    <span class="creation"> </span>
+    <p >BLOOD PRESSURE</p>
+    <p >{{bloodpresure}}/{{bloodpressdi}}</p>
+    </div>
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <!-- issues -->
+<tr ng-repeat="records in issues" >
+    <td>
+    {{records.issuesname}}&nbsp;&nbsp; {{records.idaffidamento}}
+    </td>
+    
+  </tr>
+
+</table>
+
+</div>

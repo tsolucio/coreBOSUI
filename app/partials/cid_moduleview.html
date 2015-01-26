@@ -6,7 +6,7 @@
     
 <div id="pageHeader">
 <h2 class="title">{{accountname}}</h2>
-<div id="tags"><span class="actual_tags">geek, interessante,</span> <a href="#">Manage Tags</a></div>
+<!--<div id="tags"><span class="actual_tags"> </span> <a href="#"> </a></div>-->
 </div><!-- pageHeader -->
 
 <div ng-include="'partials/cid_pageTabs.html'" ></div>
@@ -14,7 +14,11 @@
 <div ng-include="'partials/cid_profileDetails.html'" ></div>
     <!-- profileDetails -->
 <div ng-if="relmodule!==module" ng-include="'partials/cid_relatedList.html'"></div>
-<div ng-if="relmodule==module" ng-include="'partials/cid_summary.html'"></div>
+<div ng-if="relmodule==module && module=='Patients'" ng-include="'partials/cid_summary_vitals.html'"></div>
+<div ng-if="module=='Vitals'"
+     <nvd3 options="options" data="data"></nvd3>
+</div>
+<div ng-if="relmodule==module && module!='Patients'" ng-include="'partials/cid_summary.html'"></div>
 <!-- pageRows -->
 
 </div><!-- profileContent -->
