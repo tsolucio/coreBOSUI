@@ -16,9 +16,6 @@
     <tbody>
     <tr ng-repeat="row in relRecordList">
         <td ng-repeat="head in fields">
-            <span ng-if="$index==0">
-                <a href="#/cid_moduleview/{{relmodule}}/19x{{row[assigned_user_id]}}">{{row[head]}}</a>
-            </span>
             <span > {{row[head]}} </span>
         </td>
     </tr>
