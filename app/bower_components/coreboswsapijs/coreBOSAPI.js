@@ -330,7 +330,8 @@ angular.module('coreBOSAPIservice', [])
 		corebosAPI.doListTypes = function() {
 			var getdata = {
 				'operation'    : 'listtypes',
-				'sessionName'  : coreBOSAPIStatus.getSessionInfo()._sessionid
+				'sessionName'  : coreBOSAPIStatus.getSessionInfo()._sessionid,
+                                'fieldTypeList' : ''
 			};
 			return $http({
 				method : 'GET',
@@ -374,6 +375,57 @@ angular.module('coreBOSAPIservice', [])
 			return ltypes;
 		};
 
+                /**
+		 * Get filter fields to show in listview
+		 */
+		corebosAPI.getFilterFields = function(module) {
+			var getdata = {
+				'operation'    : 'getfilterfields',
+				'sessionName'  : coreBOSAPIStatus.getSessionInfo()._sessionid,
+                                'module'  : module
+			};
+			return $http({
+				method : 'GET',
+				url : _serviceurl,
+				params: getdata
+			});
+		};
+                /**
+		 * Get related modules that have ui10 toward module
+		 */
+		corebosAPI.getRelatedModules = function(module) {
+			var getdata = {
+				'operation'    : 'getrelatedmodules',
+				'sessionName'  : coreBOSAPIStatus.getSessionInfo()._sessionid,
+                                'module'  : module
+			};
+			return $http({
+				method : 'GET',
+				url : _serviceurl,
+				params: getdata
+			});
+		};
+                
+                /**
+		 * Retrieve related records.
+		 */
+		corebosAPI.doGetUi10RelatedRecords = function(record, module, relatedModule, queryParameters) {
+			if (angular.isObject(queryParameters)) queryParameters = angular.toJson(queryParameters);
+			var senddata = {
+				'operation' : 'getui10relatedrecords',
+				'sessionName' : coreBOSAPIStatus.getSessionInfo()._sessionid,
+				'id' : record,
+				'module' : module,
+				'relatedModule' : relatedModule,
+				'queryParameters' : queryParameters
+                                
+			};
+			return $http({
+				method : 'POST',
+				url : _serviceurl,
+				data: senddata
+			});
+		};
 		/**
 		 * Do Describe Operation
 		 */
