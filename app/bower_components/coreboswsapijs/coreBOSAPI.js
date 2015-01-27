@@ -409,15 +409,15 @@ angular.module('coreBOSAPIservice', [])
                 /**
 		 * Retrieve related records.
 		 */
-		corebosAPI.doGetUi10RelatedRecords = function(record, module, relatedModule, queryParameters) {
-			if (angular.isObject(queryParameters)) queryParameters = angular.toJson(queryParameters);
+		corebosAPI.doGetUi10RelatedRecords = function(record, module, relatedModule, fields) {
+			if (angular.isObject(fields)) fields = angular.toJson(fields);
 			var senddata = {
 				'operation' : 'getui10relatedrecords',
 				'sessionName' : coreBOSAPIStatus.getSessionInfo()._sessionid,
 				'id' : record,
 				'module' : module,
 				'relatedModule' : relatedModule,
-				'queryParameters' : queryParameters
+				'fields' : fields
                                 
 			};
 			return $http({

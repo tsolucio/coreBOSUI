@@ -510,19 +510,21 @@ angular.module('coreBOSJSTickets.controllers', [])
         $scope.relRecordList = [];
 	
         $scope.showRel = function(relmod,relfield){
-            $scope.relmodule=relmod;
-            $scope.relfield=relfield;
-            if($scope.relmodule!=$scope.module){
+            if(relmod!=$scope.module){
             
-            coreBOSWSAPI.getFilterFields($scope.relmodule).then(function(response) {
+            coreBOSWSAPI.getFilterFields(relmod).then(function(response) {
 			$scope.fields=response.data.result.fields;
                         $scope.linkfields=response.data.result.linkfields;
-			
-		});
-            coreBOSWSAPI.doGetUi10RelatedRecords( $scope.recordid ,$scope.module,$scope.relmodule, $scope.fields).then(function(response) {
+                        
+                        coreBOSWSAPI.doGetUi10RelatedRecords( $scope.recordid ,$scope.module,relmod, $scope.fields).then(function(response) {
                             $scope.relRecordList =response.data.result.records;
                   });
+			
+		});
+            
               }
+            $scope.relmodule=relmod;
+            $scope.relfield=relfield;
         };
         
 
@@ -587,9 +589,9 @@ angular.module('coreBOSJSTickets.controllers', [])
         }
         
         $scope.doCreateRel = function() {
-             alert($scope.entity);
+             //alert($scope.entity);
              $scope.entity[$scope.relfield]=$scope.recordid;
-             $scope.entity['assigned_user_id']='19x1';
+             $scope.entity['assigned_user_id']='19x6';
                 coreBOSWSAPI.doCreate($scope.relmodule,$scope.entity).then(function(response) {
                          coreBOSWSAPI.doGetUi10RelatedRecords( $scope.recordid ,$scope.module,$scope.relmodule, $scope.fields).then(function(response) {
                          $scope.relRecordList =response.data.result.records;
