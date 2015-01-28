@@ -337,7 +337,65 @@ angular.module('coreBOSJSTickets.controllers', [])
             $defer.resolve($scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
         }
         });
-    });
+        $scope.get_contact = function() {
+		coreBOSWSAPI.doQuery('select * from vitals join patiens on pazientide=patientid where patientsname like %'+$scope.searchPat+'%').then(function(response) {
+		$scope.moduleList = response.data.result;
+		$scope.myPageItemsCount = response.data.result.length;
+	});
+	};
+    if($scope.module=='Vitals'){ 
+    $scope.options = {
+            chart: {
+                type: 'linePlusBarChart',
+                height: 450,
+                margin : {
+                    top: 30,
+                    right: 75,
+                    bottom: 50,
+                    left: 75
+                },
+                x: function(d, i){return i;},
+                y: function(d){return d[1];},
+                color: d3.scale.category10().range(),
+                transitionDuration: 500,
+                xAxis: {
+                    axisLabel: 'Parametri Vitali',
+                    tickFormat: function(d) {
+                        var label = $scope.data[0].values[d][0];
+                        return label ;
+                    }
+                },
+                y1Axis: {
+                    axisLabel: 'Blood',
+                    tickFormat: function(d){return d3.format(',f')(d)}
+                },
+                y2Axis: {
+                    axisLabel: 'Weight',
+                    tickFormat: function(d) { return d3.format(',.2f')(d);}
+                }
+            }
+        };
+        
+        var blood = [],weight=[];
+        angular.forEach($scope.moduleList, function(value, key) {
+                    blood.push([value.vitalsname,  value.bloodpressy]);
+                    weight.push([value.vitalsname, value.weight]);
+        });
+        
+        $scope.data = [
+            {
+                "key" : "Blood Pressure" ,
+                "bar": true,
+                "values" :  blood 
+            },
+            {
+                "key" : "Weight" ,
+                "values" : weight 
+            }
+        ];
+    }//for Vitals ListView
+        
+         });
 	/*coreBOSWSAPI.doQuery('select * from helpdesk limit 0,15').then(function(response) {
 		$scope.moduleList = response.data.result;
 		$scope.myPageItemsCount = response.data.result.length;

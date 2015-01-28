@@ -1,5 +1,8 @@
 <div id="more_list_actions" class="pageRight">
-<ul>
+<div ng-if="module=='Vitals'">
+    <nvd3 options="options" data="data"></nvd3>
+</div>
+<ul ng-if="module!='Vitals'">
 <li class="csv">
 <a href="#">Update</a><br />
 Update everyone in this list 

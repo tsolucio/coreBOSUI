@@ -2,9 +2,9 @@
 <form editable-form name="relateForm" onaftersave="doCreateRel()">
 <div id="opportunities" class="pageRows">
 <div id="pagerowsHeader">
-<h2 class="title">{{relmodule}} involving {{accountname}}</h2>
+<h2 class="title">{{relmodule | i18next}} di {{accountname}}</h2>
 <div id="buttons">
-  <a ng-click="relateForm.$show()" class="add-action"><span class="icon">+</span>Add {{relmodule}}</a></div>
+  <a ng-click="relateForm.$show()" class="add-action"><span class="icon">+</span>{{Add | i18next}} {{relmodule | i18next}}}}</a></div>
  
 </div><!-- pageHeader -->
 <table width="100%" border="0" class="recordList column5">

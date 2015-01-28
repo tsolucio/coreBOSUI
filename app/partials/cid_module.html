@@ -4,29 +4,20 @@
 <div id="pageWrapper">
 <div class="pageLeft">
 <div id="pageHeader">
-<h2 class="title">{{moduleLabel}}</h2>
-<div class="button-add"><a href="#/cid_moduleview/{{module}}/11">Add {{moduleLabel | i18next}}</a></div>
+<h2 class="title">{{moduleLabel | i18next}}</h2>
+<div class="button-add"><a href="#/cid_moduleview/{{module}}/11">Aggiungi {{moduleLabel | i18next}}</a></div>
 </div><!-- pageHeader -->
 
 <div id="pageFilter">
-<select name="viewId" size="1" onchange="#">
-<optgroup label="Saved Lists">
-<option value="16274">filtro 1</option>
-</optgroup>
-<optgroup label="System Lists">
-<option value="organisations">All Organizations</option>
-<option value="people">All People</option>
-<option selected="selected" value="everyone">All People &amp; Organizations</option>
-<option value="lastimport">Last Import</option>
-</optgroup>
-</select>
+<input placeholder="Cerca..." ng-model="searchText.$">
+<input ng-if="modules=='Vitals'" placeholder="Cerca Paziente" ng-model="searchPat" ng-keyup="get_contact()">
 <div class="new-list"></div>
-<div id="viewResult">Showing 1 to 5 of {{myPageItemsCount}}</div>
+<div id="viewResult">Mostra 1 al 5 di {{myPageItemsCount}}</div>
 </div>
 <!-- pageFilter -->
 
 <div id="listPeople" class="pageRows">
-<input placeholder="Search..." ng-model="searchText.$">
+{{moduleList}}
 <table width="100%" border="0" ng-table="tableParams" >
    <tr ng-repeat="records in $data | filter:searchText:strict">
     <td id="profileCol"  >
