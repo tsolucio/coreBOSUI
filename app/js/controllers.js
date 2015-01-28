@@ -562,6 +562,13 @@ angular.module('coreBOSJSTickets.controllers', [])
 				$scope.modulefieldList = flds;
 				$scope.moduleData = moduleData;
 			});
+            if($scope.module=='Vitals'){
+                    $scope.bloodpresure=moduleData['bloodpresure'];
+                    $scope.oxygensat=moduleData['oxygensat'];
+                    $scope.weight=moduleData['weight'];
+                    $scope.bloodpressdi=moduleData['bloodpressdi'];
+            }
+        
 		}
 	});
         $scope.relmodule=$scope.module;
@@ -602,14 +609,6 @@ angular.module('coreBOSJSTickets.controllers', [])
             });
         }
         
-//        if($scope.module=='Vitals'){
-//         $scope.bloodpresure=response.data.result.vitals[2];
-//                    $scope.oxygensat=response.data.result.vitals[3];
-//                    $scope.weight=response.data.result.vitals[4];
-//                    $scope.bloodpressdi=response.data.result.vitals[5];
-//         
-//        }
-//        
         $scope.doCreateRel = function() {
              //alert($scope.entity);
              $scope.entity[$scope.relfield]=$scope.recordid;
