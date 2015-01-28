@@ -563,10 +563,10 @@ angular.module('coreBOSJSTickets.controllers', [])
 				$scope.moduleData = moduleData;
 			});
             if($scope.module=='Vitals'){
-                    $scope.bloodpresure=moduleData.bloodpresure;
-                    $scope.oxygensat=moduleData.oxygensat;
-                    $scope.weight=moduleData.weight;
-                    $scope.bloodpressdi=moduleData.bloodpressdi;
+                    $scope.bloodpresure=$scope.moduleData['bloodpresure'];
+                    $scope.oxygensat=$scope.moduleData['oxygensat'];
+                    $scope.weight=$scope.moduleData['weight'];
+                    $scope.bloodpressdi=$scope.moduleData['bloodpressdi'];
             }
         
 		}
