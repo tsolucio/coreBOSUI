@@ -1,40 +1,44 @@
-<div class="summary-panel column3">
+<div class="summary-panel1 column31">
   <div class="column  first">
    <h3>Prossima Visita</h3>
    <p class="large"><a href="#/cid_moduleview/Visit/64x{{visitid}}">{{visitname}}</a></p>
    </div>
     <div class="column  first">
-   <h3>La attuale Prescrizione</h3>
+   <h3>Ultima Prescrizione</h3>
    <p class="large"><a href="#/cid_moduleview/Prescription/66x{{prescriptionid}}">{{prescriptionname}}</a></p>
    </div>
 
 </div>
 
-<div id="summary" class="pageRows">
-<div id="pagerowsHeader">
+<div id="summary" class="pageRows1">
+<div id="pagerowsHeader1">
 <h2 class="title">Parametri Vitali</h2>
+<div id="evaluation">
+<div id="poor-value">POOR</div><div id="room-value">ROOM FOR IMPROVEMENT</div><div id="good-value">GOOD</div>
+</div>
 <div id="buttons">
  <!-- <a class="add-action" href="#"><span class="icon">+</span></a>-->
 </div>
 </div><!-- pageHeader -->
+<div id="evaluation-icons"></div>
 <table width="100%" border="0">
   <tr>
     <td>
     <div class="note">
     <span class="creation"> </span>
     <p >BLOOD PRESSURE</p>
-    <p class="attachments-pdf">{{bloodpresure}}</p>
+    <p class="attachments-pdf good">{{bloodpresure}}</p>
     </div>
     </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <td>
     <div class="note">
     <span class="creation"> </span>
-    <p >BLOOD PRESSURE</p>
-    <p >{{bloodpresure}}</p>
+    <p ></p>
+    <p class="attachments-pdf good">{{bloodpresure}}</p>
     </div>
     </td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td><div class="graphic-table"></div></td>
     <td>&nbsp;</td>
   </tr>
   
@@ -43,17 +47,18 @@
     <div class="note">
     <span class="creation"> </span>
     <p >WEIGHT</p>
-    <p class="attachments-pdf">{{weight}}</p>
+    <p class="attachments-pdf poor">{{weight}}</p>
     </div>
     </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <td><div class="note">
+    <td>
+    <div class="note">
     <span class="creation"> </span>
-    <p >WEIGHT</p>
-    <p >{{weight}}</p>
+    <p ></p>
+    <p class="attachments-pdf poor">{{weight}}</p>
     </div>
     </td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td><div class="graphic-line"></div></td>
     <td>&nbsp;</td>
   </tr>
   
@@ -62,17 +67,17 @@
     <div class="note">
     <span class="creation"> </span>
     <p >BLOOD PRESSURE</p>
-    <p class="attachments-pdf">{{bloodpresure}}/{{bloodpressdi}}</p>
+    <p class="attachments-pdf good">{{bloodpresure}}/{{bloodpressdi}}</p>
     </div>
     </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <td><div class="note">
     <span class="creation"> </span>
-    <p >BLOOD PRESSURE</p>
-    <p >{{bloodpresure}}/{{bloodpressdi}}</p>
+    <p ></p>
+    <p class="attachments-pdf good">{{bloodpresure}}/{{bloodpressdi}}</p>
     </div>
     </td>
     <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td><div class="graphic-table"></div></td>
     <td>&nbsp;</td>
   </tr>
   <!-- issues -->

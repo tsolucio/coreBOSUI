@@ -20,7 +20,7 @@
 <table width="100%" border="0" ng-table="tableParams" >
    <tr ng-repeat="records in $data | filter:searchText:strict">
     <td id="profileCol"  >
-        <span class="name"><a href="#/cid_moduleview/{{module}}/{{records.id}}">{{records[linkfields[0]]}}</a> </span> at {{records[fields[0]]}} , {{records[fields[1]]}}<br />
+        <span class="name"><a href="#/cid_moduleview/{{module}}/{{records.id}}">{{records[linkfields[0]]}}</a> </span>   {{records[fields[1]]}}<br />
         <span class="address"> {{records[fields[2]]}} ,{{records[fields[3]]}}</span><br />
      
     </td>
