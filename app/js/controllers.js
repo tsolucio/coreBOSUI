@@ -322,17 +322,17 @@ angular.module('coreBOSJSTickets.controllers', [])
         $routeParams.module=$routeParams.module.toLowerCase();
 	coreBOSWSAPI.doQuery('select * from '+$routeParams.module).then(function(response) {
             $scope.moduleList = response.data.result;
-            if($scope.fields!='')
-            {
-                if($scope.fields.indexOf('assigned_user_id')!='-1' ){
-                 angular.forEach($scope.moduleList, function(value, key) {
-                    coreBOSWSAPI.doQuery('select first_name,last_name from users where id=19x1').then(function(response) {
-                        $scope.moduleList[key]['assigned_user_id']=response.data.result[0]['first_name']+' '+response.data.result[0]['last_name'];
-
-                    });
-                 });
-             }
-            }
+//            if($scope.fields!='')
+//            {
+//                if($scope.fields.indexOf('assigned_user_id')!='-1' ){
+//                 angular.forEach($scope.moduleList, function(value, key) {
+//                    coreBOSWSAPI.doQuery('select first_name,last_name from users where id=19x1').then(function(response) {
+//                        $scope.moduleList[key]['assigned_user_id']=response.data.result[0]['first_name']+' '+response.data.result[0]['last_name'];
+//
+//                    });
+//                 });
+//             }
+//            }
         
         $scope.myPageItemsCount = response.data.result.length;
 	$scope.tableParams = new ngTableParams({
