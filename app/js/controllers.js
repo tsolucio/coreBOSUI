@@ -324,9 +324,9 @@ angular.module('coreBOSJSTickets.controllers', [])
             $scope.moduleList = response.data.result;
 //            if($scope.fields!='')
 //            {
-//                if($scope.fields.indexOf('assigned_user_id')!='-1' ){
+//                if($scope.fields.indexOf('patientvis')!='-1' ){
 //                 angular.forEach($scope.moduleList, function(value, key) {
-//                    coreBOSWSAPI.doQuery('select first_name,last_name from users where id=19x1').then(function(response) {
+//                    coreBOSWSAPI.doQuery('select patientsname from patients where patientsid='+value.patientvis).then(function(response) {
 //                        $scope.moduleList[key]['assigned_user_id']=response.data.result[0]['first_name']+' '+response.data.result[0]['last_name'];
 //
 //                    });
@@ -617,6 +617,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                     $scope.oxygensat=response.data.result.vitals[3];
                     $scope.weight=response.data.result.vitals[4];
                     $scope.bloodpressdi=response.data.result.vitals[5];
+                    $scope.pulse=response.data.result.vitals[6];
                     $scope.issues=response.data.result.issues;
             });
         }
