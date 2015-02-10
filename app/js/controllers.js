@@ -538,7 +538,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                                         if(found.uitype=='10'){
                                             coreBOSWSAPI.getReferenceValue(value).then(function(response) {
                                                 var t=response.data.result[value];
-                                                ui10[key]=t['reference'];alert(t['reference']);
+                                                ui10[key]=t['reference'];//alert(t['reference']);
                                             });
                                         }
                                 });
@@ -553,9 +553,9 @@ angular.module('coreBOSJSTickets.controllers', [])
 					if (key==$scope.labelFields) {
 						$scope.accountname = value;
 					}
-                                        if(found.uitype=='10'){alert(key+' '+value);
+                                        if(found.uitype=='10'){//alert(key+' '+value);
                                             value=ui10[key];
-                                            alert(value);
+                                            //alert(value);
                                         }
 //                                        if(found.uitype=='10'){
 //                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
