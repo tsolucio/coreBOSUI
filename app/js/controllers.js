@@ -318,7 +318,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                         $scope.linkfields=response.data.result.linkfields;
 			
 		});
-        
+            
         $routeParams.module=$routeParams.module.toLowerCase();
 	coreBOSWSAPI.doQuery('select * from '+$routeParams.module).then(function(response) {
             $scope.moduleList = response.data.result;
@@ -558,14 +558,14 @@ angular.module('coreBOSJSTickets.controllers', [])
 //                                            //alert(value);
 //                                        }
                                         var id10='';
-                                        if(found.uitype=='10'){
-                                            id10=value['id10'];
-                                            value=value['v10'];
-//                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
-//                                                var t=response.data.result[value];
-//                                                value=t;//alert(t['reference']);
-//                                            });
-                                        }
+//                                        if(found.uitype=='10'){
+//                                            id10=value['id10'];
+//                                            value=value['v10'];
+////                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
+////                                                var t=response.data.result[value];
+////                                                value=t;//alert(t['reference']);
+////                                            });
+//                                        }
 					var fld = {
 						label:found.label,
 						labelclass:lblclass,
