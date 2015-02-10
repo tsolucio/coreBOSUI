@@ -36,12 +36,12 @@ angular.module('coreBOSJSTickets.controllers', [])
 		$scope.menuShow = false;
 	else
 		$scope.menuShow = true;
-        coreBOSWSAPI.doQuery('select * from PHBManager' ).then(function(response) {
-			$scope.result = response.data.result[0];
-                        less.modifyVars({
-                              '@color': $scope.result.menu_color
-        });
-		});
+//        coreBOSWSAPI.doQuery('select * from PHBManager' ).then(function(response) {
+//			$scope.result = response.data.result[0];
+//                        less.modifyVars({
+//                              '@color': $scope.result.menu_color
+//        });
+//		});
 	$scope.toggleMenu = function() {
 		$scope.menuShow = !$scope.menuShow;
 		$rootScope.menuShow = !$rootScope.menuShow;
@@ -531,18 +531,18 @@ angular.module('coreBOSJSTickets.controllers', [])
                         }
                         else
                         {
-                            var flds = [], cols = [], ui10 = [];
-			coreBOSWSAPI.doRetrieve($routeParams.id).then(function(response) {
-				angular.forEach(response.data.result, function(value, key) {
-					var found = $filter('getArrayElementById')($scope.modulefields, key, 'name');
-                                        if(found.uitype=='10'){
-                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
-                                                var t=response.data.result[value];
-                                                ui10[key]=t['reference'];//alert(t['reference']);
-                                            });
-                                        }
-                                });
-                            });
+//                            var flds = [], cols = [], ui10 = [];
+//			coreBOSWSAPI.doRetrieve($routeParams.id).then(function(response) {
+//				angular.forEach(response.data.result, function(value, key) {
+//					var found = $filter('getArrayElementById')($scope.modulefields, key, 'name');
+//                                        if(found.uitype=='10'){
+//                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
+//                                                var t=response.data.result[value];
+//                                                ui10[key]=t['reference'];//alert(t['reference']);
+//                                            });
+//                                        }
+//                                });
+//                            });
                        coreBOSWSAPI.doRetrieve($routeParams.id).then(function(response) {
 				var flds = [], cols = [];
 				var moduleData = {};
@@ -553,22 +553,26 @@ angular.module('coreBOSJSTickets.controllers', [])
 					if (key==$scope.labelFields) {
 						$scope.accountname = value;
 					}
-                                        if(found.uitype=='10'){//alert(key+' '+value);
-                                            value=ui10[key];
-                                            //alert(value);
-                                        }
-//                                        if(found.uitype=='10'){
+//                                        if(found.uitype=='10'){//alert(key+' '+value);
+//                                            value=ui10[key];
+//                                            //alert(value);
+//                                        }
+                                        var id10='';
+                                        if(found.uitype=='10'){
+                                            id10=value['id10'];
+                                            value=value['v10'];
 //                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
 //                                                var t=response.data.result[value];
 //                                                value=t;//alert(t['reference']);
 //                                            });
-//                                        }
+                                        }
 					var fld = {
 						label:found.label,
 						labelclass:lblclass,
 						field:key,
 						val: value == '' ? 'none' : value,
-						valclass:vlclass,
+						val10:id10,
+                                                valclass:vlclass,
 						uitype: found.uitype,
 						type: found.type.name
 					};
