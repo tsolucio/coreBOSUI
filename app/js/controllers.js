@@ -530,7 +530,20 @@ angular.module('coreBOSJSTickets.controllers', [])
 				$scope.moduleData = moduleData;
                         }
                         else
+                        {
+                            var flds = [], cols = [], ui10 = [];
 			coreBOSWSAPI.doRetrieve($routeParams.id).then(function(response) {
+				angular.forEach(response.data.result, function(value, key) {
+					var found = $filter('getArrayElementById')($scope.modulefields, key, 'name');
+                                        if(found.uitype=='10'){
+                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
+                                                var t=response.data.result[value];
+                                                ui10[key]=t['reference'];alert(t['reference']);
+                                            });
+                                        }
+                                });
+                            });
+                       coreBOSWSAPI.doRetrieve($routeParams.id).then(function(response) {
 				var flds = [], cols = [];
 				var moduleData = {};
 				var numcols = 3;
@@ -540,6 +553,16 @@ angular.module('coreBOSJSTickets.controllers', [])
 					if (key==$scope.labelFields) {
 						$scope.accountname = value;
 					}
+                                        if(found.uitype=='10'){alert(key+' '+value);
+                                            value=ui10[key];
+                                            alert(value);
+                                        }
+//                                        if(found.uitype=='10'){
+//                                            coreBOSWSAPI.getReferenceValue(value).then(function(response) {
+//                                                var t=response.data.result[value];
+//                                                value=t;//alert(t['reference']);
+//                                            });
+//                                        }
 					var fld = {
 						label:found.label,
 						labelclass:lblclass,
@@ -574,6 +597,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 				$scope.modulefieldList = flds;
 				$scope.moduleData = moduleData;
 			});
+                }
             if($scope.module=='Vitals'){
                     $scope.bloodpresure=$scope.moduleData['bloodpresure'];
                     $scope.oxygensat=$scope.moduleData['oxygensat'];
