@@ -404,12 +404,12 @@ angular.module('coreBOSJSTickets.controllers', [])
         angular.forEach($scope.moduleList, function(value, key) {
                     blood.push([value.vitalsname,  value.bloodpressy]);
                     weight.push([value.vitalsname, value.weight]);
-                    weight.push([value.vitalsname, value.weight]);
-                    weight.push([value.vitalsname, value.weight]);
-                    weight.push([value.vitalsname, value.weight]);
-                    weight.push([value.vitalsname, value.weight]);
-                    weight.push([value.vitalsname, value.weight]);
-                    weight.push([value.vitalsname, value.weight]);
+//                    weight.push([value.vitalsname, value.weight]);
+//                    weight.push([value.vitalsname, value.weight]);
+//                    weight.push([value.vitalsname, value.weight]);
+//                    weight.push([value.vitalsname, value.weight]);
+//                    weight.push([value.vitalsname, value.weight]);
+//                    weight.push([value.vitalsname, value.weight]);
         });
         
         $scope.data = [
@@ -426,25 +426,25 @@ angular.module('coreBOSJSTickets.controllers', [])
                 "key" : "Hdl" ,
                 "values" :  blood 
             },
-            {
-                "key" : "Globuli Rossi" ,
-                "bar": true,
-                "values" :  blood 
-            },
-            {
-                "key" : "Globuli Bianchi" ,
-                "values" :  blood 
-            },
-            {
-                "key" : "Piastrine" ,
-                "bar": true,
-                "values" :  blood 
-            },
-            {
-                "key" : "Glicemia" ,
-                "bar": true,
-                "values" :  blood 
-            },
+//            {
+//                "key" : "Globuli Rossi" ,
+//                "bar": true,
+//                "values" :  blood 
+//            },
+//            {
+//                "key" : "Globuli Bianchi" ,
+//                "values" :  blood 
+//            },
+//            {
+//                "key" : "Piastrine" ,
+//                "bar": true,
+//                "values" :  blood 
+//            },
+//            {
+//                "key" : "Glicemia" ,
+//                "bar": true,
+//                "values" :  blood 
+//            },
             {
                 "key" : "Creatinemia" ,
                 "values" : weight 
