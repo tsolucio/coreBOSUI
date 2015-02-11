@@ -390,64 +390,65 @@ angular.module('coreBOSJSTickets.controllers', [])
                     }
                 },
                 y1Axis: {
-                    axisLabel: 'Blood',
+                    axisLabel: '',
                     tickFormat: function(d){return d3.format(',f')(d)}
                 },
                 y2Axis: {
-                    axisLabel: 'Weight',
+                    axisLabel: '',
                     tickFormat: function(d) { return d3.format(',.2f')(d);}
                 }
             }
         };
         
-        var blood = [],weight=[],weight=[],weight=[],weight=[];
+        var blood = [],colesterol=[],hdl=[],redglobules=[],whiteglobules=[],
+                piastrin=[],glicemia=[],bloodpressdi=[];
         angular.forEach($scope.moduleList, function(value, key) {
                     blood.push([value.vitalsname,  value.bloodpressy]);
-                    weight.push([value.vitalsname, value.weight]);
-//                    weight.push([value.vitalsname, value.weight]);
-//                    weight.push([value.vitalsname, value.weight]);
-//                    weight.push([value.vitalsname, value.weight]);
-//                    weight.push([value.vitalsname, value.weight]);
-//                    weight.push([value.vitalsname, value.weight]);
-//                    weight.push([value.vitalsname, value.weight]);
+                    colesterol.push([value.vitalsname, value.colesterol]);
+                    hdl.push([value.vitalsname, value.hdl]);
+                    redglobules.push([value.vitalsname, value.redglobules]);
+                    whiteglobules.push([value.vitalsname, value.whiteglobules]);
+                    piastrin.push([value.vitalsname, value.piastrin]);
+                    glicemia.push([value.vitalsname, value.glicemia]);
+                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
         });
         
         $scope.data = [
             {
-                "key" : "Pressione" ,
+                "key" : "Blood Pressure Systolic" ,
                 "values" :  blood 
             },
             {
                 "key" : "Colesterolo Totale" ,
                 "bar": true,
-                "values" :  blood 
+                "values" :  colesterol 
             },
             {
                 "key" : "Hdl" ,
-                "values" :  blood 
+                "values" :  hdl 
             },
-//            {
-//                "key" : "Globuli Rossi" ,
-//                "bar": true,
-//                "values" :  blood 
-//            },
-//            {
-//                "key" : "Globuli Bianchi" ,
-//                "values" :  blood 
-//            },
-//            {
-//                "key" : "Piastrine" ,
-//                "bar": true,
-//                "values" :  blood 
-//            },
-//            {
-//                "key" : "Glicemia" ,
-//                "bar": true,
-//                "values" :  blood 
-//            },
             {
-                "key" : "Creatinemia" ,
-                "values" : weight 
+                "key" : "Globuli Rossi" ,
+                "bar": true,
+                "values" :  redglobules 
+            },
+            {
+                "key" : "Globuli Bianchi" ,
+                "values" :  whiteglobules 
+            },
+            {
+                "key" : "Piastrine" ,
+                "bar": true,
+                "values" :  piastrin 
+            },
+            {
+                "key" : "Glicemia" ,
+                "bar": true,
+                "values" :  glicemia 
+            },
+            {
+                "key" : "Blood Pressure Diastolic" ,
+                "values" : bloodpressdi 
             }
         ];
     }//for Vitals ListView
