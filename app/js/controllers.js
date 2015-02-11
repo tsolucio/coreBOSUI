@@ -452,6 +452,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 		$scope.modulename = response.data.result.name;
 		$scope.modulefields = response.data.result.fields;
                 $scope.labelFields = response.data.result.labelFields;
+                $scope.indexFields = response.data.result.indexFields;
 		if ($scope.retrieveable) {
 			$scope.saveModule = function() {
                             if($scope.creating)
@@ -497,6 +498,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 				var lblclass = 'col-md-2', vlclass = 'col-md-2';
                                 for(i=0;i<$scope.modulefields.length;i++)
 				{
+                                    if ($scope.modulefields[i]['name']!='id') {
 					var found = $scope.modulefields[i];
 					
 					var fld = {
@@ -524,7 +526,8 @@ angular.module('coreBOSJSTickets.controllers', [])
 						flds.push(cols);
 						cols = [];
 					}
-				};
+                                    }
+                                };
 				flds.push(cols);
 				$scope.modulefieldList = flds;
 				$scope.moduleData = moduleData;
@@ -549,10 +552,12 @@ angular.module('coreBOSJSTickets.controllers', [])
 				var numcols = 3;
 				var lblclass = 'col-md-2', vlclass = 'col-md-2';
 				angular.forEach(response.data.result, function(value, key) {
-					var found = $filter('getArrayElementById')($scope.modulefields, key, 'name');
+					if (key!='id') {
+                                            var found = $filter('getArrayElementById')($scope.modulefields, key, 'name');
 					if (key==$scope.labelFields) {
 						$scope.accountname = value;
 					}
+                                        
 //                                        if(found.uitype=='10'){//alert(key+' '+value);
 //                                            value=ui10[key];
 //                                            //alert(value);
@@ -596,7 +601,8 @@ angular.module('coreBOSJSTickets.controllers', [])
 						flds.push(cols);
 						cols = [];
 					}
-				});
+                                    }
+                                });
 				flds.push(cols);
 				$scope.modulefieldList = flds;
 				$scope.moduleData = moduleData;
