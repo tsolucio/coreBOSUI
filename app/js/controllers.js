@@ -318,7 +318,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                         $scope.linkfields=response.data.result.linkfields;
 			
 		});
-            
+          
         $routeParams.module=$routeParams.module.toLowerCase();
 	coreBOSWSAPI.doQuery('select * from '+$routeParams.module).then(function(response) {
             $scope.moduleList = response.data.result;
@@ -355,6 +355,18 @@ angular.module('coreBOSJSTickets.controllers', [])
 		$scope.myPageItemsCount = response.data.result.length;
 	});
 	};
+        if($scope.module=='Patients'){ 
+            less.modifyVars({
+                              '@pageRightWidth': '60%',
+                              '@pageLeftWidth': '37%'
+        });
+        } 
+        else{
+            less.modifyVars({
+                              '@pageRightWidth': '27%',
+                              '@pageLeftWidth': '70%'
+        });
+        }
     if($scope.module=='Vitals'){ 
     $scope.options = {
             chart: {
@@ -388,13 +400,49 @@ angular.module('coreBOSJSTickets.controllers', [])
             }
         };
         
-        var blood = [],weight=[];
+        var blood = [],weight=[],weight=[],weight=[],weight=[];
         angular.forEach($scope.moduleList, function(value, key) {
                     blood.push([value.vitalsname,  value.bloodpressy]);
+                    weight.push([value.vitalsname, value.weight]);
+                    weight.push([value.vitalsname, value.weight]);
+                    weight.push([value.vitalsname, value.weight]);
+                    weight.push([value.vitalsname, value.weight]);
+                    weight.push([value.vitalsname, value.weight]);
+                    weight.push([value.vitalsname, value.weight]);
                     weight.push([value.vitalsname, value.weight]);
         });
         
         $scope.data = [
+            {
+                "key" : "Blood Pressure" ,
+                "bar": true,
+                "values" :  blood 
+            },
+            {
+                "key" : "Blood Pressure" ,
+                "bar": true,
+                "values" :  blood 
+            },
+            {
+                "key" : "Blood Pressure" ,
+                "bar": true,
+                "values" :  blood 
+            },
+            {
+                "key" : "Blood Pressure" ,
+                "bar": true,
+                "values" :  blood 
+            },
+            {
+                "key" : "Blood Pressure" ,
+                "bar": true,
+                "values" :  blood 
+            },
+            {
+                "key" : "Blood Pressure" ,
+                "bar": true,
+                "values" :  blood 
+            },
             {
                 "key" : "Blood Pressure" ,
                 "bar": true,
