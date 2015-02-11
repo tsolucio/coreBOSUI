@@ -355,7 +355,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 		$scope.myPageItemsCount = response.data.result.length;
 	});
 	};
-        if($scope.module=='Patients'){ 
+        if($scope.module=='Vitals'){ 
             less.modifyVars({
                               '@pageRightWidth': '60%',
                               '@pageLeftWidth': '37%'
