@@ -414,42 +414,39 @@ angular.module('coreBOSJSTickets.controllers', [])
         
         $scope.data = [
             {
-                "key" : "Blood Pressure" ,
+                "key" : "Pressione" ,
+                "values" :  blood 
+            },
+            {
+                "key" : "Colesterolo Totale" ,
                 "bar": true,
                 "values" :  blood 
             },
             {
-                "key" : "Blood Pressure" ,
+                "key" : "Hdl" ,
+                "values" :  blood 
+            },
+            {
+                "key" : "Globuli Rossi" ,
                 "bar": true,
                 "values" :  blood 
             },
             {
-                "key" : "Blood Pressure" ,
+                "key" : "Globuli Bianchi" ,
+                "values" :  blood 
+            },
+            {
+                "key" : "Piastrine" ,
                 "bar": true,
                 "values" :  blood 
             },
             {
-                "key" : "Blood Pressure" ,
+                "key" : "Glicemia" ,
                 "bar": true,
                 "values" :  blood 
             },
             {
-                "key" : "Blood Pressure" ,
-                "bar": true,
-                "values" :  blood 
-            },
-            {
-                "key" : "Blood Pressure" ,
-                "bar": true,
-                "values" :  blood 
-            },
-            {
-                "key" : "Blood Pressure" ,
-                "bar": true,
-                "values" :  blood 
-            },
-            {
-                "key" : "Weight" ,
+                "key" : "Creatinemia" ,
                 "values" : weight 
             }
         ];
