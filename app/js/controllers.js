@@ -414,10 +414,10 @@ angular.module('coreBOSJSTickets.controllers', [])
         });
         
         $scope.data = [
-            {
-                "key" : "Blood Pressure Systolic" ,
-                "values" :  blood 
-            },
+//            {
+//                "key" : "Blood Pressure Systolic" ,
+//                "values" :  blood 
+//            },
             {
                 "key" : "Colesterolo Totale" ,
                 "bar": true,
@@ -445,11 +445,11 @@ angular.module('coreBOSJSTickets.controllers', [])
                 "key" : "Glicemia" ,
                 "bar": true,
                 "values" :  glicemia 
-            },
-            {
-                "key" : "Blood Pressure Diastolic" ,
-                "values" : bloodpressdi 
             }
+//            ,{
+//                "key" : "Blood Pressure Diastolic" ,
+//                "values" : bloodpressdi 
+//            }
         ];
     }//for Vitals ListView
         
