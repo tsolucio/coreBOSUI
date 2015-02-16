@@ -387,10 +387,8 @@ angular.module('coreBOSJSTickets.controllers', [])
                 stacked: true,
                 xAxis: {
                     axisLabel: 'Parametri Vitali',
-                    tickFormat: function(d) {
-                        var label = $scope.data[0].values[d][0];
-                        return label ;
-                    }
+                    showMaxMin: true,
+                    tickFormat: function(d) {return d;}
                 },
                 y1Axis: {
                     axisLabel: '',
@@ -402,14 +400,14 @@ angular.module('coreBOSJSTickets.controllers', [])
         var blood = [],colesterol=[],hdl=[],redglobules=[],whiteglobules=[],
                 piastrin=[],glicemia=[],bloodpressdi=[];
         angular.forEach($scope.moduleList, function(value, key) {
-                    blood.push([value.vitalsname,  value.bloodpressy]);
-                    colesterol.push([value.vitalsname, value.colesterol]);
-                    hdl.push([value.vitalsname, value.hdl]);
-                    redglobules.push([value.vitalsname, value.redglobules]);
-                    whiteglobules.push([value.vitalsname, value.whiteglobules]);
-                    piastrin.push([value.vitalsname, value.piastrin]);
-                    glicemia.push([value.vitalsname, value.glicemia]);
-                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
+                    blood.push({x:value.vitalsname,  y:value.bloodpressy});
+                    colesterol.push({x:value.vitalsname, y:value.colesterol});
+                    hdl.push({x:value.vitalsname, y:value.hdl});
+                    redglobules.push({x:value.vitalsname, y:value.redglobules});
+                    whiteglobules.push({x:value.vitalsname, y:value.whiteglobules});
+                    piastrin.push({x:value.vitalsname, y:value.piastrin});
+                    glicemia.push({x:value.vitalsname, y:value.glicemia});
+                    bloodpressdi.push({x:value.vitalsname, y:value.bloodpressdi});
         });
         
         $scope.data = [
@@ -419,26 +417,32 @@ angular.module('coreBOSJSTickets.controllers', [])
 //            },
             {
                 "key" : "Colesterolo Totale" ,
+                color: '#bcbd22',
                 "values" :  colesterol 
             },
             {
                 "key" : "Hdl" ,
+                 color: '#1f77b4',
                 "values" :  hdl 
             },
             {
                 "key" : "Globuli Rossi" ,
+                color: 'black',
                 "values" :  redglobules 
             },
             {
                 "key" : "Globuli Bianchi" ,
+                color: 'gray',
                 "values" :  whiteglobules 
             },
             {
                 "key" : "Piastrine" ,
+                color: 'red',
                 "values" :  piastrin 
             },
             {
                 "key" : "Glicemia" ,
+                color: 'yellow',
                 "values" :  glicemia 
             }
 //            ,{
