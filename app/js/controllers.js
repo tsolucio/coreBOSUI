@@ -376,7 +376,6 @@ angular.module('coreBOSJSTickets.controllers', [])
                 type: 'multiBarChart',
                 height: 450,
                 "width": 175,
-                "stacked": true,
                 margin : {
                     top: 20,
                     right: 20,
@@ -386,7 +385,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                 clipEdge: true,
                 staggerLabels: true,
                 transitionDuration: 500,
-                stacked: true,
+                stacked: false,
                 xAxis: {
                     axisLabel: 'Parametri Vitali',
                     showMaxMin: true,
