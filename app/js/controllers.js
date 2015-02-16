@@ -375,6 +375,8 @@ angular.module('coreBOSJSTickets.controllers', [])
             chart: {
                 type: 'multiBarChart',
                 height: 450,
+                "width": 175,
+                "stacked": true,
                 margin : {
                     top: 20,
                     right: 20,
