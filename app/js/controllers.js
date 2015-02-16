@@ -108,7 +108,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 			
 			coreBOSWSAPI.doLogin($scope.username,$scope.password).then(function() {
 				coreBOSWSAPI.setConfigured();
-				$location.path('/cid_module/Anamnesis/Anamnesis');
+				$location.path('/cid_module/Patients/Pazienti');
 			},function(){
 				coreBOSWSAPI.doLoginPortal($scope.username,$scope.password).then(function(response) {
 					
@@ -120,7 +120,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 						accountid : '',
 						email     : '',
 					}];
-					$location.path('/cid_module/Anamnesis/Anamnesis');
+					$location.path('/cid_module/Patients/Pazienti');
 				},function(){
 					$scope.ErrorUserNotValid = true;
 				});
