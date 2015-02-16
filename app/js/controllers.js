@@ -318,6 +318,9 @@ angular.module('coreBOSJSTickets.controllers', [])
                         $scope.linkfields=response.data.result.linkfields;
 			
 		});
+        coreBOSWSAPI.getRelatedActions($scope.module,'LISTVIEWPORTAL').then(function(response) {
+			$scope.relatedactions=response.data.result;		
+		});
           
         $routeParams.module=$routeParams.module.toLowerCase();
 	coreBOSWSAPI.doQuery('select * from '+$routeParams.module).then(function(response) {
@@ -370,18 +373,18 @@ angular.module('coreBOSJSTickets.controllers', [])
     if($scope.module=='Vitals'){ 
     $scope.options = {
             chart: {
-                type: 'linePlusBarChart',
+                type: 'multiBarChart',
                 height: 450,
                 margin : {
-                    top: 30,
-                    right: 75,
-                    bottom: 50,
-                    left: 75
+                    top: 20,
+                    right: 20,
+                    bottom: 60,
+                    left: 45
                 },
-                x: function(d, i){return i;},
-                y: function(d){return d[1];},
-                color: d3.scale.category10().range(),
+                clipEdge: true,
+                staggerLabels: true,
                 transitionDuration: 500,
+                stacked: true,
                 xAxis: {
                     axisLabel: 'Parametri Vitali',
                     tickFormat: function(d) {
@@ -392,10 +395,6 @@ angular.module('coreBOSJSTickets.controllers', [])
                 y1Axis: {
                     axisLabel: '',
                     tickFormat: function(d){return d3.format(',f')(d)}
-                },
-                y2Axis: {
-                    axisLabel: '',
-                    tickFormat: function(d) { return d3.format(',.2f')(d);}
                 }
             }
         };
@@ -420,7 +419,6 @@ angular.module('coreBOSJSTickets.controllers', [])
 //            },
             {
                 "key" : "Colesterolo Totale" ,
-                "bar": true,
                 "values" :  colesterol 
             },
             {
@@ -429,7 +427,6 @@ angular.module('coreBOSJSTickets.controllers', [])
             },
             {
                 "key" : "Globuli Rossi" ,
-                "bar": true,
                 "values" :  redglobules 
             },
             {
@@ -438,12 +435,10 @@ angular.module('coreBOSJSTickets.controllers', [])
             },
             {
                 "key" : "Piastrine" ,
-                "bar": true,
                 "values" :  piastrin 
             },
             {
                 "key" : "Glicemia" ,
-                "bar": true,
                 "values" :  glicemia 
             }
 //            ,{

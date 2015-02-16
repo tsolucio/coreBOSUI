@@ -3,9 +3,9 @@
     <nvd3 options="options" data="data"></nvd3>
 </div>
 <ul ng-if="module!='Vitals'">
-<li class="csv">
-<a href="#">Update</a><br />
-Update everyone in this list 
+<li ng-repeat="mitem in relatedactions" class="csv">
+<a href="#">{{mitem.reference}}</a><br />
+{{mitem.description}}
 </li>
 
 </ul>
