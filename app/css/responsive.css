@@ -1,0 +1,103 @@
+/* MObile Menu
+================================================== */
+	
+	
+/* Smaller Then Desktop
+================================================== */
+@media only screen and (max-width: 959px) {
+
+}
+/* Tablet (Portrait)
+================================================== */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	
+}
+/* Mobile (Portrait & Landscape)
+================================================== */
+@media only screen and (max-width: 767px) {
+
+	
+.ng-scope {
+width: 80%;
+margin-left: 0px;
+margin-top: 50px;
+margin: 0 auto;
+}
+
+#topHeader #profileWrapper{
+width: 50%;
+float: left;
+display: inline-block;
+}
+
+#topHeader #add_new_actions{
+width: 48%;
+float: right;
+display: inline-block;
+margin-right:0px;
+}
+#topHeader #add_new_actions #more_actions{
+	padding-bottom: 30px;
+}
+
+
+#pageWrapper{
+
+display: block;
+}
+.pageLeft{
+	width:100%;
+	display: block;
+	float:none;
+}
+#pageWrapper #pageHeader h2{
+	padding-left: 30%;
+}
+#pageWrapper .pageLeft #pageHeader .button-add{
+	padding-right: 0px;
+width: 100%;
+display: block;
+padding-bottom: 10px;
+margin-top:50px;
+margin-bottom:20px;
+} 
+
+
+#pageWrapper .pageLeft #pageHeader .button-add a{
+font-size: 50%;
+padding-left: 50px;
+margin-left: 0px;
+
+}
+
+
+.toggleHide #pageWrapper{
+	margin-top: 30px;
+}
+#pageWrapper #profileCol{
+	width: 100%;
+min-width: 120px;
+display:block;
+text-align: center;
+}	
+#pageWrapper .pageRight{
+width: 100%;
+display: block;
+margin-top: 20px;
+padding: 0px;
+}
+#pageWrapper .pageRight ul{
+	padding: 5px;
+}
+	
+
+	
+	
+}
+
+
+/* Mobile (Landscape)
+================================================== */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+}
