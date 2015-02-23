@@ -64,8 +64,8 @@ angular.module('coreBOSJSTickets.controllers', [])
 .controller('termscCtrl',function($scope) {
 })
 .controller('loginCtrl',function($scope, $rootScope, $i18next, $filter, Setup, coreBOSWSAPI, coreBOSAPIStatus,$location) {
-	$scope.username='paziente';
-        $scope.password='juKaW2jesSfBhgHM';
+//	$scope.username='paziente';
+//        $scope.password='juKaW2jesSfBhgHM';
         if (!coreBOSAPIStatus.hasInvalidKeys()) {
 		$location.path('/currentorder');
 	}
@@ -106,11 +106,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 		});
 		$scope.login = function(){
 			
-			coreBOSWSAPI.doLogin($scope.username,$scope.password).then(function() {
-				coreBOSWSAPI.setConfigured();
-				$location.path('/cid_module/Patients/Pazienti');
-			},function(){
-				coreBOSWSAPI.doLoginPortal($scope.username,$scope.password).then(function(response) {
+			coreBOSWSAPI.doLoginPortal($scope.username,$scope.password).then(function(response) {
 					
 					coreBOSWSAPI.setConfigured();
 					$rootScope.contactinfo = [{
@@ -122,8 +118,13 @@ angular.module('coreBOSJSTickets.controllers', [])
 					}];
 					$location.path('/cid_module/Patients/Pazienti');
 				},function(){
-					$scope.ErrorUserNotValid = true;
-				});
+                                   
+                                        coreBOSWSAPI.doLogin($scope.username,$scope.password).then(function() {
+                                            coreBOSWSAPI.setConfigured();
+                                            $location.path('/cid_module/Patients/Pazienti');
+                                },function(){
+                                                $scope.ErrorUserNotValid = true;
+                                        });
 			});
 		};
 
