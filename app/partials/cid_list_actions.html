@@ -1,6 +1,9 @@
 <div id="more_list_actions" class="pageRight">
 <div ng-if="module=='Vitals'">
-    <nvd3 options="options" data="data"></nvd3>
+    <nvd3 options="options" 
+          data="data"
+        showYAxis="false">
+    </nvd3>
 </div>
 <ul ng-if="module!='Vitals'">
 <li ng-repeat="mitem in relatedactions" class="csv">
