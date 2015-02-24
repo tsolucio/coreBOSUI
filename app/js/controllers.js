@@ -425,15 +425,20 @@ angular.module('coreBOSJSTickets.controllers', [])
                 clipVoronoi: false,
               xAxis: {
                   axisLabel: 'Parametri Vitali',
-                tickFormat: function(d) {return d;}
+                tickFormat: function(d) {
+                var dx = $scope.data[0].values[d] ;
+                        return dx ;}
               },
                y1Axis: {
-                    axisLabel: ''
-                   // tickFormat: function(d){return d;}
+                    axisLabel: '',
+                    tickFormat: function(d){
+                         return d3.format(',f')(d) ;
+                    }
                 },
                 y2Axis: {
-                    axisLabel: ''
-                   // tickFormat: function(d) { return  d;}
+                    axisLabel: '',
+                    tickFormat: function(d) { 
+                     return d3.format(',f')(d)}
                 }
             }
         };
