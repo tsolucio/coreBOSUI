@@ -741,6 +741,14 @@ angular.module('coreBOSJSTickets.controllers', [])
                     $scope.bloodpressdi=response.data.result.vitals[5];
                     $scope.pulse=response.data.result.vitals[6];
                     $scope.issues=response.data.result.issues;
+                    
+                    $scope.toolTipContentFunction = function(){
+                            return function(key, x, y, e, graph) {
+                            return  '<div style="margin-top:-50px;">' +
+                                    '<h1>' + key + '</h1>' +
+                                '<p>' +  y + ' at ' + x + '</p></div>'
+                            }
+                    }
                     $scope.options = {
                         chart: {
                             type: 'bulletChart',
