@@ -439,7 +439,7 @@ angular.module('coreBOSJSTickets.controllers', [])
             }
         };
         var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
-                triglicerid=[],glicemia=[],bloodpressdi=[];
+                triglicerid=[],glicemia=[],bloodpressdi=[],constant=[];
 //        angular.forEach($scope.moduleList, function(value, key) {
 //                    blood.push({"x":value.vitalsname,  "y":value.bloodpressy});
 //                    colesterol.push({"x":value.vitalsname, "y":value.colesterol});
@@ -459,6 +459,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                     triglicerid.push([value.vitalsname, value.triglicerid]);
                     glicemia.push([value.vitalsname, value.glicemia]);
                     bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
+                    constant.push([value.vitalsname, 50]);
         });
 
 //   $scope.$on('elementClick.directive', function(angularEvent, event){
