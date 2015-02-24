@@ -741,6 +741,20 @@ angular.module('coreBOSJSTickets.controllers', [])
                     $scope.bloodpressdi=response.data.result.vitals[5];
                     $scope.pulse=response.data.result.vitals[6];
                     $scope.issues=response.data.result.issues;
+                    $scope.options = {
+                        chart: {
+                            type: 'bulletChart',
+                            transitionDuration: 500
+                        }
+                    };
+
+                    $scope.data = {
+                        "title": "Impulso",
+                        "subtitle": "per min",
+                        "ranges": [60,70,100],
+                        "measures": [$scope.pulse],
+                        "markers": []
+                    }
             });
         }
         
