@@ -428,12 +428,12 @@ angular.module('coreBOSJSTickets.controllers', [])
                 tickFormat: function(d) {return d;}
               },
                y1Axis: {
-                    axisLabel: 'Y1 Axis',
-                    tickFormat: function(d){return d3.format(',f')(d)}
+                    axisLabel: ''
+                   // tickFormat: function(d){return d;}
                 },
                 y2Axis: {
-                    axisLabel: 'Y2 Axis',
-                    tickFormat: function(d) { return '$' + d3.format(',.2f')(d);}
+                    axisLabel: ''
+                   // tickFormat: function(d) { return  d;}
                 }
             }
         };
@@ -459,21 +459,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                     glicemia.push([value.vitalsname, value.glicemia]);
                     bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
         });
-$scope.data1 = [{
-    key: "Waiting",
-    type: "line",
-     color: 'red',
-    yAxis: 1,
-    values: [{"x":0,"y":-0.26708954724859474},{"x":1,"y":-0.1624892210027971},{"x":2,"y":-0.5924411655333494},{"x":3,"y":-1.6071130698018106},{"x":4,"y":-0.17109494537056263},{"x":5,"y":-0.3324174971176965},{"x":6,"y":-0.587695929346864},{"x":7,"y":-0.8387119537954346},{"x":8,"y":-1.0834967632580388},{"x":9,"y":-1.133094179453966},{"x":10,"y":-0.8396938157671168},{"x":11,"y":-0.5233738724306258},{"x":12,"y":-0.27652674754503287},{"x":13,"y":-0.1602852978051726},{"x":14,"y":-0.11823238009603844},{"x":15,"y":-0.15870175348743512},{"x":16,"y":-0.1499149080178702},{"x":17,"y":-0.18941759371603883},{"x":18,"y":-0.15916157140330076},{"x":19,"y":-0.15288497695592412},{"x":20,"y":-0.16420378813376751},{"x":21,"y":-0.1939878318980206},{"x":22,"y":-0.13342078484286837},{"x":23,"y":-0.1062087384518481}
-    ]
-  }, {
-    key: "Alarms",
-    type: "area",
-    yAxis: 2,
-    values: [
-      {"x":0,"y":1},{"x":1,"y":2},{"x":2,"y":3},{"x":3,"y":0},{"x":4,"y":0},{"x":5,"y":0},{"x":6,"y":0},{"x":7,"y":0},{"x":8,"y":0},{"x":9,"y":0},{"x":10,"y":4},{"x":11,"y":4},{"x":12,"y":4},{"x":13,"y":3},{"x":14,"y":4},{"x":15,"y":0},{"x":16,"y":2},{"x":17,"y":3},{"x":18,"y":6},{"x":19,"y":12},{"x":20,"y":1},{"x":21,"y":6},{"x":22,"y":7},{"x":23,"y":9}
-    ]
-  }];
+
 //   $scope.$on('elementClick.directive', function(angularEvent, event){
 //                alert("Hi");
 //            });
