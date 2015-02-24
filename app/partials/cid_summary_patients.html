@@ -34,8 +34,8 @@
     <td>
     <div class="note">
     <span class="creation"> </span>
-    <p ></p>
-    <p class="attachments-pdf good"></p>
+    <p >PRESSIONE ARTERIOSA DIASTOLICA</p>
+    <p class="attachments-pdf good">{{bloodpressdi}}</p>
     </div>
     </td>
     <td>&nbsp;</td>
@@ -45,27 +45,14 @@
   
   <tr>
     <td>
-    <div class="note">
-    <span class="creation"> </span>
-    <p >PESO</p>
-    <p class="attachments-pdf poor">{{weight}}</p>
-    </div>
-    </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <td>
-    <div class="note">
-    <span class="creation"> </span>
-    <p ></p>
-    <p class="attachments-pdf poor">{{weight}}</p>
-    </div>
+    <div class="note"><p >PESO</p>{{weight}}</div>
+    <nvd3 options="options2" data="data2"></nvd3>
     </td>
-    <td>&nbsp;</td>
-    <td><!--<div class="graphic-line"></div> --></td>
-    <td>&nbsp;</td>
   </tr>
   
   <tr>
     <td>
-    <div class="note"><p >IMPULSO</p></div>
+    <div class="note"><p >IMPULSO</p>{{pulse}}</div>
     <nvd3 options="options" data="data"></nvd3>
     </td>
     

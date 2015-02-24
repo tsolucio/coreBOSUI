@@ -799,9 +799,7 @@ $scope.data1 = [{
                         useInteractiveGuideline: true,
                         xAxis: {
                             showMaxMin: false,
-                            tickFormat: function(d) {
-                                return d;
-                            }
+                            tickFormat: function(d) {return d;}
                         },
                         yAxis: {
                             tickFormat: function(d){
@@ -813,12 +811,12 @@ $scope.data1 = [{
 
                     $scope.data_blood = [
                         {
-                            "key" : "Pressione Arteriosa Daistolica" ,
-                            "values" : [  [ 0 , $scope.bloodpressdi],[ 2 , $scope.bloodpressdi]  ]  },
+                            "key" : "Pressione Arteriosa Diastolica" ,
+                            "values" : [  [ 0 , $scope.bloodpressdi],[ 'Diastolica' , $scope.bloodpressdi]  ]  },
 
                         {
                             "key" : "Pressione Arteriosa Sistolica" ,
-                            "values" : [ [ 0 ,  $scope.bloodpresure],[ 1 , $scope.bloodpresure] ] }
+                            "values" : [ [ 0 ,  $scope.bloodpresure],[ 'Sistolica' , $scope.bloodpresure] ] }
                     ];
                     $scope.options = {
                         chart: {
@@ -833,7 +831,22 @@ $scope.data1 = [{
                         "ranges": [60,70,100],
                         "measures": [$scope.pulse],
                         "markers": []
-                    }
+                    };
+                    
+                    $scope.options2 = {
+                        chart: {
+                            type: 'bulletChart',
+                            transitionDuration: 500
+                        }
+                    };
+
+                    $scope.data2 = {
+                        "title": "Peso",
+                        "subtitle": "kg",
+                        "ranges": [40,70,100],
+                        "measures": [$scope.weight],
+                        "markers": []
+                    };
             });
         }
         
