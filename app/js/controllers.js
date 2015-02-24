@@ -741,6 +741,36 @@ angular.module('coreBOSJSTickets.controllers', [])
                     $scope.bloodpressdi=response.data.result.vitals[5];
                     $scope.pulse=response.data.result.vitals[6];
                     $scope.issues=response.data.result.issues;
+                    $scope.options_blood = {
+                      "chart": {
+                        "type": "stackedAreaChart",
+                        "height": 450,
+                        "margin": {
+                          "top": 20,
+                          "right": 20,
+                          "bottom": 60,
+                          "left": 40
+                        },
+                        "useVoronoi": false,
+                        "clipEdge": true,
+                        "transitionDuration": 500,
+                        "useInteractiveGuideline": true,
+                        "xAxis": {
+                          "showMaxMin": false
+                        },
+                        "yAxis": {}
+                      }
+                    };
+
+                    $scope.data_blood = [
+                        {
+                            "key" : "Pressione Arteriosa Daistolica" ,
+                            "values" : [ [ 1 , $scope.bloodpressdi]  ]  },
+
+                        {
+                            "key" : "Pressione Arteriosa Sistolica" ,
+                            "values" : [ [ 2 , $scope.bloodpresure] ] }
+                    ];
                     $scope.options = {
                         chart: {
                             type: 'bulletChart',
