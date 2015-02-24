@@ -776,11 +776,11 @@ angular.module('coreBOSJSTickets.controllers', [])
                     $scope.data_blood = [
                         {
                             "key" : "Pressione Arteriosa Daistolica" ,
-                            "values" : [ [ 1 , $scope.bloodpressdi]  ]  },
+                            "values" : [  [ 0 , 0],[ 1 , $scope.bloodpressdi]  ]  },
 
                         {
                             "key" : "Pressione Arteriosa Sistolica" ,
-                            "values" : [ [ 2 , $scope.bloodpresure] ] }
+                            "values" : [ [ 0 , 0],[ 2 , $scope.bloodpresure] ] }
                     ];
                     $scope.options = {
                         chart: {
