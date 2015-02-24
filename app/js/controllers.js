@@ -742,24 +742,35 @@ angular.module('coreBOSJSTickets.controllers', [])
                     $scope.pulse=response.data.result.vitals[6];
                     $scope.issues=response.data.result.issues;
                     $scope.options_blood = {
-                      "chart": {
-                        "type": "stackedAreaChart",
-                        "height": 450,
-                        "margin": {
-                          "top": 20,
-                          "right": 20,
-                          "bottom": 60,
-                          "left": 40
+                          chart: {
+                        type: 'stackedAreaChart',
+                        height: 250,
+                        eidth: 150,
+                        "tooltips": false,
+                        margin : {
+                            top: 20,
+                            right: 20,
+                            bottom: 60,
+                            left: 40
                         },
-                        "useVoronoi": false,
-                        "clipEdge": true,
-                        "transitionDuration": 500,
-                        "useInteractiveGuideline": true,
-                        "xAxis": {
-                          "showMaxMin": false
+                        x: function(d){return d[0];},
+                        y: function(d){return d[1];},
+                        useVoronoi: false,
+                        clipEdge: true,
+                        transitionDuration: 500,
+                        useInteractiveGuideline: true,
+                        xAxis: {
+                            showMaxMin: false,
+                            tickFormat: function(d) {
+                                return d;
+                            }
                         },
-                        "yAxis": {}
-                      }
+                        yAxis: {
+                            tickFormat: function(d){
+                                return d;
+                            }
+                        }
+                    }
                     };
 
                     $scope.data_blood = [
