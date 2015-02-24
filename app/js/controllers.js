@@ -322,7 +322,11 @@ angular.module('coreBOSJSTickets.controllers', [])
         coreBOSWSAPI.getRelatedActions($scope.module,'LISTVIEWPORTAL').then(function(response) {
 			$scope.relatedactions=response.data.result;		
 		});
-          
+        coreBOSWSAPI.doDescribe($scope.module).then(function(response) {
+		$scope.idPrefix = response.data.result.idPrefix;
+		$scope.createable = response.data.result.createable;
+		$scope.updateable = response.data.result.updateable;
+            });
         $routeParams.module=$routeParams.module.toLowerCase();
 	coreBOSWSAPI.doQuery('select * from '+$routeParams.module).then(function(response) {
             $scope.moduleList = response.data.result;
