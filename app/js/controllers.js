@@ -417,28 +417,24 @@ angular.module('coreBOSJSTickets.controllers', [])
                 bottom: 50,
                 left: 70
               },
-              color: d3.scale.category10().range(),
-                showControls: true,
-                showValues: true,
+                x: function(d, i){return i;},
+                y: function(d){return d[1];},
+                color: d3.scale.category10().range(),
                 transitionDuration: 500,
-                useInteractiveGuideline: true,
-                clipVoronoi: false,
-              xAxis: {
-                  axisLabel: 'Parametri Vitali',
-                tickFormat: function(d) {
-                var dx = $scope.data[0].values[d] ;
-                        return dx ;}
-              },
-               y1Axis: {
-                    axisLabel: '',
-                    tickFormat: function(d){
-                         return d3.format(',f')(d) ;
+                xAxis: {
+                    axisLabel: 'Parametri Vitali',
+                    tickFormat: function(d) {
+                        var label = $scope.data[0].values[d][0];
+                        return label ;
                     }
+                },
+                y1Axis: {
+                    axisLabel: '',
+                    tickFormat: function(d){return d3.format(',f')(d)}
                 },
                 y2Axis: {
                     axisLabel: '',
-                    tickFormat: function(d) { 
-                     return d3.format(',f')(d)}
+                    tickFormat: function(d) { return d3.format(',.2f')(d);}
                 }
             }
         };
