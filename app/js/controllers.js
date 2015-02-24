@@ -836,7 +836,8 @@ $scope.data1 = [{
                     $scope.options2 = {
                         chart: {
                             type: 'bulletChart',
-                            transitionDuration: 500
+                            transitionDuration: 500,
+                            color:function (d, i) { return 'red'; }
                         }
                     };
 
