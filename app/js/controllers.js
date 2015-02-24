@@ -467,7 +467,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 //                    glicemia.push([value.vitalsname, value.glicemia]);
 //                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
 //        });
-$scope.data = [{
+$scope.data1 = [{
     key: "Waiting",
     type: "line",
      color: 'red',
@@ -482,7 +482,10 @@ $scope.data = [{
       {"x":0,"y":1},{"x":1,"y":2},{"x":2,"y":3},{"x":3,"y":0},{"x":4,"y":0},{"x":5,"y":0},{"x":6,"y":0},{"x":7,"y":0},{"x":8,"y":0},{"x":9,"y":0},{"x":10,"y":4},{"x":11,"y":4},{"x":12,"y":4},{"x":13,"y":3},{"x":14,"y":4},{"x":15,"y":0},{"x":16,"y":2},{"x":17,"y":3},{"x":18,"y":6},{"x":19,"y":12},{"x":20,"y":1},{"x":21,"y":6},{"x":22,"y":7},{"x":23,"y":9}
     ]
   }];
-        $scope.data1 = [
+//   $scope.$on('elementClick.directive', function(angularEvent, event){
+//                alert("Hi");
+//            });
+        $scope.data = [
             {
                 "key" : "Colesterolo Totale" ,
                 type: "bar",
