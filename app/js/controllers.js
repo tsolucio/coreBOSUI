@@ -491,35 +491,35 @@ $scope.data1 = [{
 //                yAxis: 2,
 //                 color: '#1f77b4',
                 "values" :  creatinemia 
-            },
-            {
-                "key" : "GOT" ,
-                 "bar": true,
-//                yAxis: 2,
-//                color: 'black',
-                "values" :  got 
-            },
-            {
-                "key" : "GPT" ,
-                 "bar": true,
-//                yAxis: 2,
-//                color: 'gray',
-                "values" :  gpt 
-            },
-            {
-                "key" : "Trigliceridi" ,
-//                type: "line",
-//                yAxis: 1,
-//                color: 'red',
-                "values" :  triglicerid 
-            },
-            {
-                "key" : "Glicemia" ,
-//                type: "line",
-//                yAxis: 1,
-//                color: 'yellow',
-                "values" :  glicemia 
             }
+//            {
+//                "key" : "GOT" ,
+//                 "bar": true,
+////                yAxis: 2,
+////                color: 'black',
+//                "values" :  got 
+//            },
+//            {
+//                "key" : "GPT" ,
+//                 "bar": true,
+////                yAxis: 2,
+////                color: 'gray',
+//                "values" :  gpt 
+//            },
+//            {
+//                "key" : "Trigliceridi" ,
+////                type: "line",
+////                yAxis: 1,
+////                color: 'red',
+//                "values" :  triglicerid 
+//            },
+//            {
+//                "key" : "Glicemia" ,
+////                type: "line",
+////                yAxis: 1,
+////                color: 'yellow',
+//                "values" :  glicemia 
+//            }
         ];
     }//for Vitals ListView
         
