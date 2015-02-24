@@ -372,7 +372,37 @@ angular.module('coreBOSJSTickets.controllers', [])
         });
         }
     if($scope.module=='Vitals'){ 
-    $scope.options = {
+//    $scope.options = {
+//            chart: {
+//                type: 'linePlusBarChart',
+//                height: 450,
+//                "width": 685,
+//                margin : {
+//                    top: 20,
+//                    right: 20,
+//                    bottom: 60,
+//                    left: 45
+//                },
+//                clipEdge: true,
+//                staggerLabels: true,
+//                transitionDuration: 500,
+//                stacked: false,
+//                xAxis: {
+//                    axisLabel: 'Parametri Vitali',
+//                    showMaxMin: true,
+//                    tickFormat: function(d) {return d;}
+//                },
+//                y1Axis: {
+//                    axisLabel: 'Y1 Axis',
+//                    tickFormat: function(d){return d3.format(',f')(d)}
+//                },
+//                y2Axis: {
+//                    axisLabel: 'Y2 Axis',
+//                    tickFormat: function(d) { return '$' + d3.format(',.2f')(d);}
+//                }
+//            }
+//        };
+         $scope.options = {
             chart: {
                 type: 'linePlusBarChart',
                 height: 450,
@@ -383,14 +413,18 @@ angular.module('coreBOSJSTickets.controllers', [])
                     bottom: 60,
                     left: 45
                 },
-                clipEdge: true,
-                staggerLabels: true,
-                transitionDuration: 500,
-                stacked: false,
+                x: function(d, i){return i;},
+                y: function(d){return d[1];},
+                color: d3.scale.category10().range(),
+                transitionDuration: 250,
                 xAxis: {
-                    axisLabel: 'Parametri Vitali',
-                    showMaxMin: true,
-                    tickFormat: function(d) {return d;}
+                    axisLabel: 'X Axis',
+                    showMaxMin: false,
+                    tickFormat: function(d) {
+                        var dx = $scope.data[0].values[d] && $scope.data[0].values[d][0] || 0;
+                        return dx ;
+                    },
+                    staggerLabels: true
                 },
                 y1Axis: {
                     axisLabel: 'Y1 Axis',
@@ -402,7 +436,6 @@ angular.module('coreBOSJSTickets.controllers', [])
                 }
             }
         };
-        
         var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
                 triglicerid=[],glicemia=[],bloodpressdi=[];
 //        angular.forEach($scope.moduleList, function(value, key) {
@@ -428,35 +461,35 @@ angular.module('coreBOSJSTickets.controllers', [])
         $scope.data = [
             {
                 "key" : "Colesterolo Totale" ,
-                color: '#bcbd22',
+//                color: '#bcbd22',
                 "values" :  colesterol 
             },
             {
                 "key" : "Creatinina" ,
                 "bar": true,
-                 color: '#1f77b4',
+//                 color: '#1f77b4',
                 "values" :  creatinemia 
             },
             {
                 "key" : "GOT" ,
                 "bar": true,
-                color: 'black',
+//                color: 'black',
                 "values" :  got 
             },
             {
                 "key" : "GPT" ,
                 "bar": true,
-                color: 'gray',
+//                color: 'gray',
                 "values" :  gpt 
             },
             {
                 "key" : "Trigliceridi" ,
-                color: 'red',
+//                color: 'red',
                 "values" :  triglicerid 
             },
             {
                 "key" : "Glicemia" ,
-                color: 'yellow',
+//                color: 'yellow',
                 "values" :  glicemia 
             }
         ];
