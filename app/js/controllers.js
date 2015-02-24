@@ -408,11 +408,9 @@ angular.module('coreBOSJSTickets.controllers', [])
 //        };
          $scope.options = {
             chart: {
-              type: 'multiChart',
+              type: 'linePlusBarChart',
               height: 450,
               "width": 685,
-              clipEdge: true,
-                        staggerLabels: true,
               margin: {
                 top: 30,
                 right: 60,
@@ -429,44 +427,38 @@ angular.module('coreBOSJSTickets.controllers', [])
                   axisLabel: 'Parametri Vitali',
                 tickFormat: function(d) {return d;}
               },
-              yAxis1: {
-                axisLabel: '',
-                tickFormat: function(d) {
-                  return d3.format(',.1f')(d);
+               y1Axis: {
+                    axisLabel: 'Y1 Axis',
+                    tickFormat: function(d){return d3.format(',f')(d)}
                 },
-                            axisLabelDistance: 20
-              },
-              yAxis2: {
-                axisLabel: '',
-                tickFormat: function(d) {
-                  return d3.format(',f')(d);
-                },
-                            axisLabelDistance: 20
-              }
+                y2Axis: {
+                    axisLabel: 'Y2 Axis',
+                    tickFormat: function(d) { return '$' + d3.format(',.2f')(d);}
+                }
             }
         };
         var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
                 triglicerid=[],glicemia=[],bloodpressdi=[];
-        angular.forEach($scope.moduleList, function(value, key) {
-                    blood.push({"x":value.vitalsname,  "y":value.bloodpressy});
-                    colesterol.push({"x":value.vitalsname, "y":value.colesterol});
-                    creatinemia.push({"x":value.vitalsname, "y":value.creatinemia});
-                    got.push({"x":value.vitalsname, "y":value.got});
-                    gpt.push({"x":value.vitalsname, "y":value.gpt});
-                    triglicerid.push({"x":value.vitalsname, "y":value.triglicerid});
-                    glicemia.push({"x":value.vitalsname, "y":value.glicemia});
-                    bloodpressdi.push({"x":value.vitalsname, "y":value.bloodpressdi});
-        });
 //        angular.forEach($scope.moduleList, function(value, key) {
-//                    blood.push([value.vitalsname,  value.bloodpressy]);
-//                    colesterol.push([value.vitalsname, value.colesterol]);
-//                    creatinemia.push([value.vitalsname, value.creatinemia]);
-//                    got.push([value.vitalsname, value.got]);
-//                    gpt.push([value.vitalsname, value.gpt]);
-//                    triglicerid.push([value.vitalsname, value.triglicerid]);
-//                    glicemia.push([value.vitalsname, value.glicemia]);
-//                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
+//                    blood.push({"x":value.vitalsname,  "y":value.bloodpressy});
+//                    colesterol.push({"x":value.vitalsname, "y":value.colesterol});
+//                    creatinemia.push({"x":value.vitalsname, "y":value.creatinemia});
+//                    got.push({"x":value.vitalsname, "y":value.got});
+//                    gpt.push({"x":value.vitalsname, "y":value.gpt});
+//                    triglicerid.push({"x":value.vitalsname, "y":value.triglicerid});
+//                    glicemia.push({"x":value.vitalsname, "y":value.glicemia});
+//                    bloodpressdi.push({"x":value.vitalsname, "y":value.bloodpressdi});
 //        });
+        angular.forEach($scope.moduleList, function(value, key) {
+                    blood.push([value.vitalsname,  value.bloodpressy]);
+                    colesterol.push([value.vitalsname, value.colesterol]);
+                    creatinemia.push([value.vitalsname, value.creatinemia]);
+                    got.push([value.vitalsname, value.got]);
+                    gpt.push([value.vitalsname, value.gpt]);
+                    triglicerid.push([value.vitalsname, value.triglicerid]);
+                    glicemia.push([value.vitalsname, value.glicemia]);
+                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
+        });
 $scope.data1 = [{
     key: "Waiting",
     type: "line",
@@ -488,44 +480,44 @@ $scope.data1 = [{
         $scope.data = [
             {
                 "key" : "Colesterolo Totale" ,
-                type: "bar",
-                yAxis: 1,
-                color: '#bcbd22',
+                 "bar": true,
+//                yAxis: 1,
+//                color: '#bcbd22',
                 "values" :  colesterol 
             },
             {
                 "key" : "Creatinina" ,
-                type: "line",
-                yAxis: 2,
-                 color: '#1f77b4',
+//                type: "line",
+//                yAxis: 2,
+//                 color: '#1f77b4',
                 "values" :  creatinemia 
             },
             {
                 "key" : "GOT" ,
-                type: "bar",
-                yAxis: 2,
-                color: 'black',
+                 "bar": true,
+//                yAxis: 2,
+//                color: 'black',
                 "values" :  got 
             },
             {
                 "key" : "GPT" ,
-                type: "bar",
-                yAxis: 2,
-                color: 'gray',
+                 "bar": true,
+//                yAxis: 2,
+//                color: 'gray',
                 "values" :  gpt 
             },
             {
                 "key" : "Trigliceridi" ,
-                type: "line",
-                yAxis: 1,
-                color: 'red',
+//                type: "line",
+//                yAxis: 1,
+//                color: 'red',
                 "values" :  triglicerid 
             },
             {
                 "key" : "Glicemia" ,
-                type: "line",
-                yAxis: 1,
-                color: 'yellow',
+//                type: "line",
+//                yAxis: 1,
+//                color: 'yellow',
                 "values" :  glicemia 
             }
         ];
@@ -812,11 +804,11 @@ $scope.data1 = [{
                     $scope.data_blood = [
                         {
                             "key" : "Pressione Arteriosa Diastolica" ,
-                            "values" : [  [ 0 , $scope.bloodpressdi],[ 'Diastolica' , $scope.bloodpressdi]  ]  },
+                            "values" : [  [ 0 , $scope.bloodpressdi],[ 2 , $scope.bloodpressdi]  ]  },
 
                         {
                             "key" : "Pressione Arteriosa Sistolica" ,
-                            "values" : [ [ 0 ,  $scope.bloodpresure],[ 'Sistolica' , $scope.bloodpresure] ] }
+                            "values" : [ [ 0 ,  $scope.bloodpresure],[ 1 , $scope.bloodpresure] ] }
                     ];
                     $scope.options = {
                         chart: {
