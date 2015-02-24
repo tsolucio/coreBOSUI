@@ -505,6 +505,14 @@ angular.module('coreBOSJSTickets.controllers', [])
                 "key" : "Glicemia" ,
 //                type: "line",
 //                yAxis: 1,
+                   color: 'yellow',
+                "values" :  constant 
+            }
+            ,
+            {
+                "key" : "Constant" ,
+//                type: "line",
+//                yAxis: 1,
 //                color: 'yellow',
                 "values" :  glicemia 
             }
