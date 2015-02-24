@@ -448,14 +448,14 @@ angular.module('coreBOSJSTickets.controllers', [])
         var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
                 triglicerid=[],glicemia=[],bloodpressdi=[];
         angular.forEach($scope.moduleList, function(value, key) {
-                    blood.push({x:value.vitalsname,  y:value.bloodpressy});
-                    colesterol.push({x:value.vitalsname, y:value.colesterol});
-                    creatinemia.push({x:value.vitalsname, y:value.creatinemia});
-                    got.push({x:value.vitalsname, y:value.got});
-                    gpt.push({x:value.vitalsname, y:value.gpt});
-                    triglicerid.push({x:value.vitalsname, y:value.triglicerid});
-                    glicemia.push({x:value.vitalsname, y:value.glicemia});
-                    bloodpressdi.push({x:value.vitalsname, y:value.bloodpressdi});
+                    blood.push({"x":value.vitalsname,  "y":value.bloodpressy});
+                    colesterol.push({"x":value.vitalsname, "y":value.colesterol});
+                    creatinemia.push({"x":value.vitalsname, "y":value.creatinemia});
+                    got.push({"x":value.vitalsname, "y":value.got});
+                    gpt.push({"x":value.vitalsname, "y":value.gpt});
+                    triglicerid.push({"x":value.vitalsname, "y":value.triglicerid});
+                    glicemia.push({"x":value.vitalsname, "y":value.glicemia});
+                    bloodpressdi.push({"x":value.vitalsname, "y":value.bloodpressdi});
         });
 //        angular.forEach($scope.moduleList, function(value, key) {
 //                    blood.push([value.vitalsname,  value.bloodpressy]);
