@@ -374,7 +374,7 @@ angular.module('coreBOSJSTickets.controllers', [])
     if($scope.module=='Vitals'){ 
     $scope.options = {
             chart: {
-                type: 'multiBarChart',
+                type: 'linePlusBarChart',
                 height: 450,
                 "width": 685,
                 margin : {
@@ -395,58 +395,62 @@ angular.module('coreBOSJSTickets.controllers', [])
             }
         };
         
-        var blood = [],colesterol=[],hdl=[],redglobules=[],whiteglobules=[],
-                piastrin=[],glicemia=[],bloodpressdi=[];
+        var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
+                triglicerid=[],glicemia=[],bloodpressdi=[];
+//        angular.forEach($scope.moduleList, function(value, key) {
+//                    blood.push({x:value.vitalsname,  y:value.bloodpressy});
+//                    colesterol.push({x:value.vitalsname, y:value.colesterol});
+//                    creatinemia.push({x:value.vitalsname, y:value.creatinemia});
+//                    got.push({x:value.vitalsname, y:value.got});
+//                    gpt.push({x:value.vitalsname, y:value.gpt});
+//                    triglicerid.push({x:value.vitalsname, y:value.triglicerid});
+//                    glicemia.push({x:value.vitalsname, y:value.glicemia});
+//                    bloodpressdi.push({x:value.vitalsname, y:value.bloodpressdi});
+//        });
         angular.forEach($scope.moduleList, function(value, key) {
-                    blood.push({x:value.vitalsname,  y:value.bloodpressy});
-                    colesterol.push({x:value.vitalsname, y:value.colesterol});
-                    hdl.push({x:value.vitalsname, y:value.hdl});
-                    redglobules.push({x:value.vitalsname, y:value.redglobules});
-                    whiteglobules.push({x:value.vitalsname, y:value.whiteglobules});
-                    piastrin.push({x:value.vitalsname, y:value.piastrin});
-                    glicemia.push({x:value.vitalsname, y:value.glicemia});
-                    bloodpressdi.push({x:value.vitalsname, y:value.bloodpressdi});
+                    blood.push([value.vitalsname,  value.bloodpressy]);
+                    colesterol.push([value.vitalsname, value.colesterol]);
+                    creatinemia.push([value.vitalsname, value.creatinemia]);
+                    got.push([value.vitalsname, value.got]);
+                    gpt.push([value.vitalsname, value.gpt]);
+                    triglicerid.push([value.vitalsname, value.triglicerid]);
+                    glicemia.push([value.vitalsname, value.glicemia]);
+                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
         });
-        
         $scope.data = [
-//            {
-//                "key" : "Blood Pressure Systolic" ,
-//                "values" :  blood 
-//            },
             {
                 "key" : "Colesterolo Totale" ,
                 color: '#bcbd22',
                 "values" :  colesterol 
             },
             {
-                "key" : "Hdl" ,
+                "key" : "Creatinina" ,
+                "bar": true,
                  color: '#1f77b4',
-                "values" :  hdl 
+                "values" :  creatinemia 
             },
             {
-                "key" : "Globuli Rossi" ,
+                "key" : "GOT" ,
+                "bar": true,
                 color: 'black',
-                "values" :  redglobules 
+                "values" :  got 
             },
             {
-                "key" : "Globuli Bianchi" ,
+                "key" : "GPT" ,
+                "bar": true,
                 color: 'gray',
-                "values" :  whiteglobules 
+                "values" :  gpt 
             },
             {
-                "key" : "Piastrine" ,
+                "key" : "Trigliceridi" ,
                 color: 'red',
-                "values" :  piastrin 
+                "values" :  triglicerid 
             },
             {
                 "key" : "Glicemia" ,
                 color: 'yellow',
                 "values" :  glicemia 
             }
-//            ,{
-//                "key" : "Blood Pressure Diastolic" ,
-//                "values" : bloodpressdi 
-//            }
         ];
     }//for Vitals ListView
         
