@@ -781,7 +781,8 @@ $scope.data1 = [{
                           chart: {
                         type: 'stackedAreaChart',
                         height: 250,
-                        width: 150,
+                        width: 450,
+                        stacked: false,                        
                         "tooltips": false,
                         "controlsData":["Expanded"],
                         margin : {
