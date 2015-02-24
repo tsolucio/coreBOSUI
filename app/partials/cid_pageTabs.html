@@ -5,7 +5,7 @@
     </li> 
     <li ng-repeat="mitem in relatedmodules" 
         ng-class="{'active': relmodule==mitem.module }">
-        <a ng-click="showRel(mitem.module,mitem.relfield)" >{{mitem.module | i18next}}</a>
+        <a ng-click="showRel(mitem.module,mitem.relfield)" >{{mitem.module_trans | i18next}}</a>
     </li> 
 
 </ul>

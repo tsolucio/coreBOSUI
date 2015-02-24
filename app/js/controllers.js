@@ -408,92 +408,106 @@ angular.module('coreBOSJSTickets.controllers', [])
 //        };
          $scope.options = {
             chart: {
-                type: 'linePlusBarChart',
-                height: 450,
-                "width": 685,
-                margin : {
-                    top: 20,
-                    right: 20,
-                    bottom: 60,
-                    left: 45
+              type: 'multiChart',
+              height: 450,
+              "width": 685,
+              clipEdge: true,
+                        staggerLabels: true,
+              margin: {
+                top: 30,
+                right: 60,
+                bottom: 50,
+                left: 70
+              },
+              color: d3.scale.category10().range(),
+                showControls: true,
+                showValues: true,
+                transitionDuration: 500,
+                useInteractiveGuideline: true,
+                clipVoronoi: false,
+              xAxis: {
+                  axisLabel: 'Parametri Vitali',
+                tickFormat: function(d) {return d;}
+              },
+              yAxis1: {
+                axisLabel: '',
+                tickFormat: function(d) {
+                  return d3.format(',.1f')(d);
                 },
-                x: function(d, i){return i;},
-                y: function(d){return d[1];},
-                color: d3.scale.category10().range(),
-                transitionDuration: 250,
-                xAxis: {
-                    axisLabel: 'X Axis',
-                    showMaxMin: false,
-                    tickFormat: function(d) {
-                        var dx = $scope.data[0].values[d] && $scope.data[0].values[d][0] || 0;
-                        return dx ;
-                    },
-                    staggerLabels: true
+                            axisLabelDistance: 20
+              },
+              yAxis2: {
+                axisLabel: '',
+                tickFormat: function(d) {
+                  return d3.format(',f')(d);
                 },
-                y1Axis: {
-                    axisLabel: 'Y1 Axis',
-                    tickFormat: function(d){return d3.format(',f')(d)}
-                },
-                y2Axis: {
-                    axisLabel: 'Y2 Axis',
-                    tickFormat: function(d) { return '$' + d3.format(',.2f')(d);}
-                }
+                            axisLabelDistance: 20
+              }
             }
         };
         var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
                 triglicerid=[],glicemia=[],bloodpressdi=[];
-//        angular.forEach($scope.moduleList, function(value, key) {
-//                    blood.push({x:value.vitalsname,  y:value.bloodpressy});
-//                    colesterol.push({x:value.vitalsname, y:value.colesterol});
-//                    creatinemia.push({x:value.vitalsname, y:value.creatinemia});
-//                    got.push({x:value.vitalsname, y:value.got});
-//                    gpt.push({x:value.vitalsname, y:value.gpt});
-//                    triglicerid.push({x:value.vitalsname, y:value.triglicerid});
-//                    glicemia.push({x:value.vitalsname, y:value.glicemia});
-//                    bloodpressdi.push({x:value.vitalsname, y:value.bloodpressdi});
-//        });
         angular.forEach($scope.moduleList, function(value, key) {
-                    blood.push([value.vitalsname,  value.bloodpressy]);
-                    colesterol.push([value.vitalsname, value.colesterol]);
-                    creatinemia.push([value.vitalsname, value.creatinemia]);
-                    got.push([value.vitalsname, value.got]);
-                    gpt.push([value.vitalsname, value.gpt]);
-                    triglicerid.push([value.vitalsname, value.triglicerid]);
-                    glicemia.push([value.vitalsname, value.glicemia]);
-                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
+                    blood.push({x:value.vitalsname,  y:value.bloodpressy});
+                    colesterol.push({x:value.vitalsname, y:value.colesterol});
+                    creatinemia.push({x:value.vitalsname, y:value.creatinemia});
+                    got.push({x:value.vitalsname, y:value.got});
+                    gpt.push({x:value.vitalsname, y:value.gpt});
+                    triglicerid.push({x:value.vitalsname, y:value.triglicerid});
+                    glicemia.push({x:value.vitalsname, y:value.glicemia});
+                    bloodpressdi.push({x:value.vitalsname, y:value.bloodpressdi});
         });
+//        angular.forEach($scope.moduleList, function(value, key) {
+//                    blood.push([value.vitalsname,  value.bloodpressy]);
+//                    colesterol.push([value.vitalsname, value.colesterol]);
+//                    creatinemia.push([value.vitalsname, value.creatinemia]);
+//                    got.push([value.vitalsname, value.got]);
+//                    gpt.push([value.vitalsname, value.gpt]);
+//                    triglicerid.push([value.vitalsname, value.triglicerid]);
+//                    glicemia.push([value.vitalsname, value.glicemia]);
+//                    bloodpressdi.push([value.vitalsname, value.bloodpressdi]);
+//        });
         $scope.data = [
             {
                 "key" : "Colesterolo Totale" ,
-//                color: '#bcbd22',
+                type: "line",
+                yAxis: 1,
+                color: '#bcbd22',
                 "values" :  colesterol 
             },
             {
                 "key" : "Creatinina" ,
-                "bar": true,
-//                 color: '#1f77b4',
+                type: "bar",
+                yAxis: 2,
+                 color: '#1f77b4',
                 "values" :  creatinemia 
             },
             {
                 "key" : "GOT" ,
-                "bar": true,
-//                color: 'black',
+                type: "bar",
+                yAxis: 1,
+                color: 'black',
                 "values" :  got 
             },
             {
                 "key" : "GPT" ,
-                "bar": true,
-//                color: 'gray',
+                type: "bar",
+                yAxis: 2,
+                color: 'gray',
                 "values" :  gpt 
             },
             {
                 "key" : "Trigliceridi" ,
-//                color: 'red',
+                type: "line",
+                yAxis: 1,
+                color: 'red',
                 "values" :  triglicerid 
             },
             {
                 "key" : "Glicemia" ,
-//                color: 'yellow',
+                type: "line",
+                yAxis: 2,
+                color: 'yellow',
                 "values" :  glicemia 
             }
         ];
