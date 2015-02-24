@@ -440,7 +440,6 @@ angular.module('coreBOSJSTickets.controllers', [])
         };
         var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
                 triglicerid=[],glicemia=[],bloodpressdi=[],constant=[];
-        constant.push(['0', 50]);
 //        angular.forEach($scope.moduleList, function(value, key) {
 //                    blood.push({"x":value.vitalsname,  "y":value.bloodpressy});
 //                    colesterol.push({"x":value.vitalsname, "y":value.colesterol});
@@ -471,42 +470,42 @@ angular.module('coreBOSJSTickets.controllers', [])
                 "key" : "Colesterolo Totale" ,
                  "bar": true,
 //                yAxis: 1,
-                color: '#bcbd22',
+//                color: '#bcbd22',
                 "values" :  colesterol 
             },
             {
                 "key" : "Creatinina" ,
 //                type: "line",
 //                yAxis: 2,
-                 color: '#1f77b4',
+//                 color: '#1f77b4',
                 "values" :  creatinemia 
             },
             {
                 "key" : "GOT" ,
                  "bar": true,
 //                yAxis: 2,
-                color: 'black',
+//                color: 'black',
                 "values" :  got 
             },
             {
                 "key" : "GPT" ,
                  "bar": true,
 //                yAxis: 2,
-                color: 'gray',
+//                color: 'gray',
                 "values" :  gpt 
             },
             {
                 "key" : "Trigliceridi" ,
 //                type: "line",
 //                yAxis: 1,
-                color: 'red',
+//                color: 'red',
                 "values" :  triglicerid 
             },
             {
                 "key" : "Glicemia" ,
 //                type: "line",
 //                yAxis: 1,
-                   color: 'yellow',
+//                color: 'yellow',
                 "values" :  constant 
             }
             ,
@@ -514,7 +513,7 @@ angular.module('coreBOSJSTickets.controllers', [])
                 "key" : "Constant" ,
 //                type: "line",
 //                yAxis: 1,
-                color: 'blue',
+//                color: 'yellow',
                 "values" :  glicemia 
             }
         ];
