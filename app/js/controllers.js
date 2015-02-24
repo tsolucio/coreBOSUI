@@ -440,7 +440,7 @@ angular.module('coreBOSJSTickets.controllers', [])
         };
         var blood = [],colesterol=[],creatinemia=[],got=[],gpt=[],
                 triglicerid=[],glicemia=[],bloodpressdi=[],constant=[];
-        constant.push([0, 50]);
+        constant.push(['0', 50]);
 //        angular.forEach($scope.moduleList, function(value, key) {
 //                    blood.push({"x":value.vitalsname,  "y":value.bloodpressy});
 //                    colesterol.push({"x":value.vitalsname, "y":value.colesterol});
