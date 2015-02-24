@@ -391,6 +391,14 @@ angular.module('coreBOSJSTickets.controllers', [])
                     axisLabel: 'Parametri Vitali',
                     showMaxMin: true,
                     tickFormat: function(d) {return d;}
+                },
+                y1Axis: {
+                    axisLabel: 'Y1 Axis',
+                    tickFormat: function(d){return d3.format(',f')(d)}
+                },
+                y2Axis: {
+                    axisLabel: 'Y2 Axis',
+                    tickFormat: function(d) { return '$' + d3.format(',.2f')(d);}
                 }
             }
         };
