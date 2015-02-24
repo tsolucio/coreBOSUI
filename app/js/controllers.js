@@ -781,7 +781,8 @@ $scope.data1 = [{
                           chart: {
                         type: 'stackedAreaChart',
                         height: 250,
-                        eidth: 150,
+                        width: 150,
+                        style: 'stream',
                         "tooltips": false,
                         margin : {
                             top: 20,
