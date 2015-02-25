@@ -411,12 +411,7 @@ angular.module('coreBOSJSTickets.controllers', [])
               type: 'linePlusBarChart',
               height: 450,
               "width": 685,
-              labelThreshold: {
-            desc: "Pie/donut charts: ",
-            default: 20,
-            examples: [20]
-        },
-              margin: {
+               margin: {
                 top: 30,
                 right: 60,
                 bottom: 50,
