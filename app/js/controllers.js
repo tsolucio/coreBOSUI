@@ -506,7 +506,7 @@ angular.module('coreBOSJSTickets.controllers', [])
 //                type: "line",
 //                yAxis: 1,
 //                color: 'yellow',
-                "values" :  constant 
+                "values" :  glicemia 
             }
             
         ];
