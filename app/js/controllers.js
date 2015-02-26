@@ -731,7 +731,7 @@ angular.module('coreBOSJSTickets.controllers', [])
             coreBOSWSAPI.getFilterFields(relmod).then(function(response) {
 			$scope.fields=response.data.result.fields;
                         $scope.linkfields=response.data.result.linkfields;
-               		scope.fieldlabels = response.data.result.fieldlabels;         
+               		$scope.fieldlabels = response.data.result.fieldlabels;         
                         coreBOSWSAPI.doGetUi10RelatedRecords( $scope.recordid ,$scope.module,relmod, $scope.fields).then(function(response) {
                             $scope.relRecordList =response.data.result.records;
                   });
