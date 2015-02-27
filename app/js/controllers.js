@@ -55,6 +55,16 @@ angular.module('coreBOSJSTickets.controllers', [])
 		return active;
 	};
 })
+.controller('navtop',function($scope, $rootScope, Setup, $i18next, $window, $location,coreBOSWSAPI) {
+	 coreBOSWSAPI.userInfo().then(function(response) {
+                $scope.url=Setup.corebosapi;
+		$scope.user_data = response.data.result;
+		$scope.user_firstname = $scope.user_data.first_name;
+                $scope.user_lastname = $scope.user_data.last_name;
+                $scope.user_image = $scope.user_data.imagename;
+	});
+        
+    })
 .controller('logoutCtrl',function($scope, $location, coreBOSAPIStatus) {
 	// delete cookies or storage variables here
 	coreBOSAPIStatus.setInvalidKeys(true);
